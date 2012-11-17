@@ -1,0 +1,1451 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"func_get",
+				"func_get_args"
+			],
+			[
+				"st",
+				"star5  (function)"
+			],
+			[
+				"num",
+				"num_points"
+			],
+			[
+				"_",
+				"_increment  (function)"
+			],
+			[
+				"custom",
+				"customizer_classes"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 4282,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wideimagetest.php",
+			"settings":
+			{
+				"buffer_size": 3065,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wideimageext/WideImageWrapper.class.php",
+			"settings":
+			{
+				"buffer_size": 5606,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wideimage/lib/Canvas.php",
+			"settings":
+			{
+				"buffer_size": 4953,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wideimageext/GD_Utils.class.php",
+			"settings":
+			{
+				"buffer_size": 4067,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "wideimageext/test.php",
+			"settings":
+			{
+				"buffer_size": 475,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "inc.php",
+			"settings":
+			{
+				"buffer_size": 144,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"snip",
+				"Snippet: jQuery via google CDN"
+			],
+			[
+				"snipp",
+				"Snippet: html"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"bro",
+				"Preferences: Browse Packages"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"bu",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 440.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": true,
+		"show_open_files": false,
+		"show_tabs": true,
+		"side_bar_visible": false,
+		"status_bar_visible": true
+	},
+	"file_history":
+	[
+		"/D/Stuff/Programming/web/wordpress/= svn.wordpress/forms-3rdparty-integration/SVN/gitsvninfo.sh",
+		"/D/Stuff/Programming/web/LOCAL/sandbox/imagetest/wideimageext/inc.php",
+		"/D/Stuff/Programming/web/LOCAL/sandbox/imagetest/wideimageext/Wi_Coords.class.php",
+		"/D/Stuff/Programming/web/LOCAL/sandbox/imagetest/wideimageext/WideImage_Coords.class.php",
+		"/D/Stuff/Programming/web/LOCAL/sandbox/imagetest/wideimage/lib/Canvas.php",
+		"/D/Stuff/Programming/web/LOCAL/sandbox/test.php",
+		"/O/Programs/XAMPP/xampp/apache/logs/sandbox.localhost-access.log",
+		"/O/Programs/XAMPP/xampp/apache/conf/extra/httpd-vhosts.conf",
+		"/O/Programs/XAMPP/xampp/apache/conf/extra/httpd-userdir.conf",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/flexiSelector/flexi_selector.scss",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/ftpsync.settings",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/FTPSync.sublime-settings",
+		"/D/Stuff/Programming/web/random/jeff binder/PrintDesign-nested loops.java",
+		"/D/Stuff/Programming/web/random/jeff binder/printdesign.java.html",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/ui/flexi_selector.css",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/ui/flexi_selector.js",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/flexiSelector/flexi_customizer.scss",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/ui/flexi_selector.scss",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/plugin-shared-library/includes/my_shortcode_manager.class.php",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/Package Control.sublime-settings",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/FTPSync/ftpsync.sublime-settings",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/includes/Flexi_Shortcode_Manager.class.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/ui/options.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/single-flexiselector.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiPersonalizer/ui/options.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/flexiSelector.plugin.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/flexiselector.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/includes/flexiContentType.class.php",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/SublimeLinter.sublime-settings",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/includes/flexiProduct.class.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/petfinder/shortcode_interrupts.php",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/SublimeLinter/README.md",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/flexiSelector.php",
+		"/D/Stuff/Work/Flexi - Alison C/export-import/flexiusainc.wordpress.2012-08-09.asimport.xml",
+		"/F/=sync/robocopy_base.bat",
+		"/F/=sync/Sublime/robocopy_sublime_SOURCE.bat",
+		"/F/=sync/flexi/robocopy_flexi_SOURCE.bat",
+		"/F/=sync/robocopy_dropUP.bat",
+		"/F/=sync/robocopy_dropDOWN.bat",
+		"/F/=sync/robocopy_UP.bat",
+		"/F/=sync/robocopy_DOWN.bat",
+		"/F/=sync/home-dev/robocopy_homedev_SOURCE.bat",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Sassifier/SASS (Windows).sublime-build",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/flexiSelector/flexi_selector.css",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Sassifier/Sassifier.py",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/Sassifier/Sassifier.py",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/akismet/admin.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/petfinder/includes/Petfinder_Shortcode_Manager.class.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/archive.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/petfinder/petfinder_widget.js",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/petfinder/petfinder.plugin.php",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/PHP/PHP.tmLanguage",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Color Scheme - Default/Monokai - zaus.tmTheme",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/uploads/imagetest/php.ini",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/uploads/imagetest/index.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/uploads/imagetest/.htaccess",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/uploads/imagetest/index.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/uploads/imagetest.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/imagetest.php",
+		"/D/Stuff/Programming/web/DOTNET/Sassifier/README.md",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Sass/SASS (Windows).sublime-build",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/flexiSelector/flexi_customizer.css",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Sass/Sassifier/Sassifier.exe.config",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/BracketHighlighter/BracketHighlighter.sublime-settings",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/BracketHighlighter.sublime-settings",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/BracketHighlighter/Default (Windows).sublime-keymap",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/plugin-shared-library/includes/object_with_fieldkey.class.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/single-product.php",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/SublimeLinter/Default (Windows).sublime-keymap",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/ui/flexiSelector.admin.scss",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/ui/flexiSelector.admin.css",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/ui/_flexi_global.scss",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/flexiSelector/includes/flexiHelper.class.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/themes/flexi/petfinder/petfinder_widget.html.php",
+		"/D/Stuff/Work/Flexi - Alison C/staging-svn/wp-content/plugins/petfinder/featuredpet_widget.php",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/Preferences.sublime-settings",
+		"/F/=Programs/Sublime Text 2.0.1 x64/Data/Packages/User/Preferences.sublime-settings",
+		"/F/=Programs/Sublime Text 2.0.1 x64/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/Base File.sublime-settings",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/ftpsync.sublime-settings",
+		"/D/Documents/Google Drive/Programs/=sync/robo_sublime_SOURCE.bat",
+		"/D/Documents/Google Drive/Programs/=sync/robo_sublime_DOWN.bat",
+		"/D/Documents/Google Drive/Programs/=sync/robo_sublime_UP.bat",
+		"/D/Documents/Google Drive/Programs/=sync/robocopy_DOWN.bat",
+		"/D/Documents/Google Drive/Programs/=sync/robocopy_UP.bat",
+		"/D/Documents/Google Drive/Programs/=sync/robocopy_SOURCE.bat",
+		"/D/Stuff/Programming/web/css/fiddles/sass hsla/colorpicker.js",
+		"/D/Stuff/Programming/web/css/fiddles/sass hsla/index.html",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/User/jquery.sublime-snippet",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/CSVHandler.class.php",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/engine.php",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/index.php",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/test.html",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/style.scss",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Default/Preferences.sublime-settings",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/style.css",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/style.sass",
+		"/O/Installs/download_Tools/Text Editors/Sublime Text 2/plugins/n00ge-sublime-text-haml-sass-4435bd1/SASS/SASS (Windows).sublime-build",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/SCSS/Default (Windows).sublime-keymap",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Sass/README.md",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/ZenCoding/zen-coding.sublime-settings",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/ZenCoding/Default.sublime-keymap",
+		"/D/Stuff/Programming/web/LOCAL/drzaus.com/dev/oms/oms-dev-remote-endpoint.sublime-project",
+		"/O/Programs/Sublime Text 2.0.1 x64/Data/Packages/Package Control/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"D:\\Stuff\\Work\\Flexi - Alison C\\staging-svn\\wp-content",
+			"D:\\Stuff\\Work\\Flexi - Alison C\\staging-svn\\wp-content\\plugins\\petfinder"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"save",
+			"color",
+			"rgb",
+			"array function",
+			"_defaults",
+			"Overlay",
+			"_defaults",
+			"resize",
+			"lastActive",
+			"scripts",
+			"flexi-customizer-output",
+			"size",
+			"(data-personalizer-action=\"text\")",
+			"(data-personalizer-action=\"shape\")",
+			"widget",
+			"_increment",
+			"counter",
+			"lastActive",
+			"parent",
+			"setActive",
+			"SELF",
+			"script",
+			"size",
+			");",
+			"rotate",
+			"7.5",
+			", $a",
+			"arguments",
+			"lib.actions",
+			"(_alter)",
+			"\\",
+			"scripts",
+			"hook_shortcode_scripts",
+			"wp_parse_args",
+			"upload_de",
+			"include_scripts",
+			"my_shortcodes_check_for_styles",
+			"check_for_shortcode",
+			"' \\| '",
+			"\\t'",
+			"  ",
+			"attributes",
+			"append_to_customizer",
+			"pbug",
+			"configure_content_type",
+			"_loaded",
+			"taxono",
+			"option",
+			"has_customizer_bydefault",
+			"php",
+			"flexiSelector::singleton",
+			"flexicustomizer",
+			"register_scr",
+			"register_scrip",
+			"enqueue_scr",
+			".js",
+			"bonestheme",
+			"<?php __(",
+			"error_log",
+			"error_reporting",
+			"display_errors",
+			"\")",
+			"(\"",
+			"brace",
+			"matching",
+			"match",
+			"check_for_shortcode",
+			"include_scripts",
+			"add_script_if_necessary",
+			"meta",
+			"whitespace",
+			"ext.",
+			"profile",
+			"petfinder_randompet",
+			"petfinder_widget.html",
+			"ajax",
+			"view prof",
+			"variable",
+			"whitespace",
+			"include_styles",
+			"taxonomy",
+			"default",
+			"self::N",
+			"    ",
+			")\n",
+			"body",
+			"html",
+			"punctuation",
+			"punctuation.section.embedded.begin",
+			"punctuation.section.embedded.begin.php",
+			"tag",
+			"php",
+			"flexiProduct",
+			"slug",
+			"include_class",
+			"product",
+			"WP_Content_Type_Rewriter",
+			"include",
+			"options",
+			"self::N",
+			"::N",
+			"add_type_boxes",
+			"'abtcore'",
+			"flexiProduct",
+			"myLeaSh",
+			"flexiProduct",
+			"include_class",
+			"Selector",
+			"build",
+			"div.header*3",
+			"jq",
+			"footer"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"function",
+			"\\1 data-personalizer-repeat=\"none\"",
+			"MYSELF",
+			"style",
+			"color",
+			")'",
+			"'rotate",
+			"'+rotation+'",
+			"",
+			"action, value, $a",
+			"lib.Personalizer.actions",
+			"lib.actions.\\1",
+			"/",
+			"style",
+			"</option>\\n<option>",
+			"\\t, '",
+			"\\t",
+			"flexiselector",
+			"<?php _e(",
+			")",
+			"(",
+			"customizer",
+			"$this->N",
+			"\\t",
+			"myLeash",
+			"$this->N",
+			"self::N",
+			"myLeash",
+			"Personalizer"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.php",
+					"settings":
+					{
+						"buffer_size": 4282,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								378,
+								378
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+								"php": "O:\\Programs\\XAMPP\\xampp\\php\\php.exe"
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "wideimagetest.php",
+					"settings":
+					{
+						"buffer_size": 3065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2957,
+								2957
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+								"php": "O:\\Programs\\XAMPP\\xampp\\php\\php.exe"
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1020.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "wideimageext/WideImageWrapper.class.php",
+					"settings":
+					{
+						"buffer_size": 5606,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5429,
+								5429
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+								"php": "O:\\Programs\\XAMPP\\xampp\\php\\php.exe"
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2139.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "wideimage/lib/Canvas.php",
+					"settings":
+					{
+						"buffer_size": 4953,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3875,
+								3875
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+								"php": "O:\\Programs\\XAMPP\\xampp\\php\\php.exe"
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 834.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "wideimageext/GD_Utils.class.php",
+					"settings":
+					{
+						"buffer_size": 4067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2851,
+								2851
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+								"php": "O:\\Programs\\XAMPP\\xampp\\php\\php.exe"
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 570.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "wideimageext/test.php",
+					"settings":
+					{
+						"buffer_size": 475,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								38,
+								38
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+								"php": "O:\\Programs\\XAMPP\\xampp\\php\\php.exe"
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "inc.php",
+					"settings":
+					{
+						"buffer_size": 144,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								144,
+								144
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+								"php": "O:\\Programs\\XAMPP\\xampp\\php\\php.exe"
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				".scss",
+				"wp-content/plugins/flexiSelector/ui/flexi_selector.scss"
+			],
+			[
+				"flexiselectorshort",
+				"wp-content/plugins/flexiSelector/includes/Flexi_Shortcode_Manager.class.php"
+			],
+			[
+				"fle",
+				"wp-content/themes/flexi/flexiSelector/flexi_customizer.scss"
+			],
+			[
+				"flexish",
+				"wp-content/plugins/flexiSelector/includes/Flexi_Shortcode_Manager.class.php"
+			],
+			[
+				"flexi_sel",
+				"wp-content/plugins/flexiSelector/ui/flexi_selector.js"
+			],
+			[
+				"flexi_sh",
+				"wp-content/plugins/flexiSelector/includes/Flexi_Shortcode_Manager.class.php"
+			],
+			[
+				"options",
+				"wp-content/plugins/flexiPersonalizer/ui/options.php"
+			],
+			[
+				"flexi",
+				"wp-content/plugins/flexiSelector/flexiSelector.plugin.php"
+			],
+			[
+				"flexiselec",
+				"wp-content/plugins/flexiSelector/flexiSelector.plugin.php"
+			],
+			[
+				"flexise",
+				"wp-content/plugins/flexiSelector/flexiSelector.php"
+			],
+			[
+				"flexi_",
+				"wp-content/plugins/flexiSelector/ui/flexi_selector.js"
+			],
+			[
+				"archive",
+				"wp-content/themes/flexi/archive.php"
+			],
+			[
+				"petfinder",
+				"wp-content/plugins/petfinder/includes/Petfinder_Shortcode_Manager.class.php"
+			],
+			[
+				"petfind",
+				"wp-content/plugins/petfinder/petfinder.plugin.php"
+			],
+			[
+				"image",
+				"wp-content/uploads/imagetest/index.php"
+			],
+			[
+				"imagetest",
+				"wp-content/uploads/imagetest/index.php"
+			],
+			[
+				"option",
+				"wp-content/plugins/flexiSelector/ui/options.php"
+			],
+			[
+				"pet",
+				"wp-content/themes/flexi/petfinder/petfinder_widget.js"
+			],
+			[
+				"shortco",
+				"wp-content/themes/flexi/petfinder/shortcode_interrupts.php"
+			],
+			[
+				"petfinder_wid",
+				"wp-content/themes/flexi/petfinder/petfinder_widget.js"
+			],
+			[
+				"petf",
+				"wp-content/themes/flexi/petfinder/petfinder_widget.html.php"
+			],
+			[
+				"mys",
+				"wp-content/plugins/plugin-shared-library/includes/my_shortcode_manager.class.php"
+			],
+			[
+				"my_short",
+				"wp-content/plugins/plugin-shared-library/includes/my_shortcode_manager.class.php"
+			],
+			[
+				"contenttype",
+				"wp-content/plugins/flexiSelector/includes/flexiContentType.class.php"
+			],
+			[
+				"",
+				"wp-content/plugins/flexiPersonalizer/flexiPersonalizer.plugin.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/Stuff/Work/Flexi - Alison C/FlexiUsa-svn.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 144.0,
+	"status_bar_visible": true
+}
