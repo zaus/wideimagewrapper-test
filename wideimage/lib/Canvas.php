@@ -72,6 +72,12 @@
 		{
 			$this->font = $font;
 		}
+
+		/**
+		 * Get the current font
+		 * @return mixed One of the WideImage_Font_* objects
+		 */
+		function getFont() { return $this->font; }
 		
 		/**
 		 * Creates and sets the current font

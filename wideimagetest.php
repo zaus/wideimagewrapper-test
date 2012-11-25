@@ -13,7 +13,10 @@ function showImages($label, $images) {
 	<div class="image">
 		<h3><?php echo $label; ?></h3>
 		<?php foreach($images as $src) : ?>
-		<img src="<?php echo $src ?>" />
+		<div class="image" style="position:relative;">
+			<span style="position:absolute; bottom:0px; left:0px; opacity:0.5;"><b>Source:</b> <?php echo $src; ?></span>
+			<img src="<?php echo $src ?>" />
+		</div>
 		<?php endforeach; ?>
 		<hr />
 	</div>
@@ -96,8 +99,23 @@ $img = WideImage::load('original.jpg')
 
 showImages('WideImage-merge', 'watermarked-image.jpg'); //======================
 
-/**/
+
+# ==================================================
+# ============= WIDE IMAGE WRAPPER =================
+# ==================================================
+
 include('wideimageext/WideImageWrapper.class.php');
+
+// watermark, standard
+$watermarkTextWrapped = new WideImageWrapper('watermark.png');
+$imgWrapped = new WideImageWrapper('original.jpg');
+$imgWrapped
+	->resize('50%', '50%')
+	->merge($watermarkTextWrapped->image, '50% - ' . $watermarkTextWrapped->image->getWidth(), '50% - ' . $watermarkTextWrapped->image->getHeight(), 50)
+	->saveToFile('watermarked-image-wrapped.jpg');
+
+showImages('WideImageWrapper-merge', 'watermarked-image-wrapped.jpg'); //======================
+
 
 $shapes = array();
 $wrapper = new WideImageWrapper('original.jpg');
@@ -134,17 +152,37 @@ $watermark2->save('watermark-star2.png');
 showImages('Transparent Watermarks', 'watermark-star.png', 'watermark-star2.png'); //======================
 
 // http://wideimage.sourceforge.net/examples/merge-watermark/
-$wrapper = new WideImageWrapper('wideimagetest.class.jpg');
-pbug('wrapper object image - for watermark attempt', $wrapper->image);
-$wrapper->image->merge($watermark->image);
-$wrapper->image->merge($watermark->image, '50%', '20%', 50);
-$wrapper->image->merge($watermark_blah->image, '40%', '30%', 50);
-$wrapper->image->merge($watermarkText, 'right', 'top');
-$wrapper->save('wideimagetest-watermarked.class.jpg');
+$wrapper = new WideImageWrapper('original.jpg');
+// different styles of function calls -- fallthrough to WideImage method
+pbug('atomic save');
+$wrapper->merge($watermark->image);
+$wrapper->saveToFile('wideimagetest-watermarked-atomic.jpg');
+pbug('straight up save');
+$wrapper
+	->merge($watermark->image, '50%', '20%', 50)
+	->saveToFile('wideimagetest-watermarked.class.jpg');
+pbug('wrapper save');
+$wrapper->save('wideimagetest-watermarked2.class.jpg');
+/*
+// different styles of function calls -- explicitly call WideImage method
+$wrapper->image
+	//->merge($watermark_blah->image, '40%', '30%', 50)
+	->merge($watermarkText, 'right', 'top');
+$wrapper->save->saveToFile('wideimagetest-watermarked.class.jpg');
+*/
 
-pbug('wrapper object, after actions', $wrapper);
+showImages('Merged wrapper with original', 'original.jpg', 'wideimagetest-watermarked-atomic.jpg', 'wideimagetest-watermarked.class.jpg', 'wideimagetest-watermarked2.class.jpg'); //======================
 
-showImages('Merged wrapper', 'wideimagetest-watermarked.class.jpg'); //======================
+// http://wideimage.sourceforge.net/examples/merge-watermark/
+$wrapper = new WideImageWrapper('original.jpg');
+// different styles of function calls -- explicitly call WideImage method
+$wrapper
+	->merge($watermark->image)
+	->merge($watermark->image, '50%', '20%', 50)
+	->merge($watermarkText, 'right', 'top')
+	->saveToFile('wideimagetest-wrapper-watermarked.class.jpg', 93);
+
+showImages('Wrapper-merging watermarks', 'original.jpg', 'wideimagetest-wrapper-watermarked.class.jpg'); //======================
 
 // $img->merge($watermark->image)->saveToFile('img-with-starwatermark.jpg', 70);
 // showImages('merged half-and-half', 'img-with-starwatermark.jpg'); //======================
@@ -152,3 +190,40 @@ showImages('Merged wrapper', 'wideimagetest-watermarked.class.jpg'); //=========
 // explicitly dispose
 $wrapper->dispose();
 $watermark_blah->dispose();
+
+// http://wideimage.sourceforge.net/examples/merge-watermark/
+$g = WideImage::load('original.jpg');
+$g
+	->merge($watermark->image)
+	->merge($watermark->image, '50%', '20%', 50)
+	->merge($watermarkText, 'right', 'top')
+	->saveToFile('wideimagetest-alone-watermarked.class.jpg', 93);
+
+showImages('Standalone-merging watermarks', 'wideimagetest-alone-watermarked.class.jpg'); //======================
+
+
+$wrapper = new WideImageWrapper('original.jpg');
+$wrapper
+	->setActiveFont('ERASMD.TTF', 25, 'FF6600')
+	->text('testing wrapper1', 'left', 'bottom - 50', array('hexColor' => '00F6CC', 'rotation' => -0.75))
+	->text('testing wrapper2', 'left', 'bottom - 20', array('hexColor' => '00F6CC', 'rotation' => 0.03, 'shadowOffset' => array(3,3) ))
+	->save('wideimagetest-wrapper-text.jpg')
+	;
+
+showImages('Helper text', 'wideimagetest-wrapper-text.jpg');
+
+# ================== helper, not wrapper ================
+
+/**/
+include('wideimageext/WideImage_Helper.php');
+
+pbug('###setting font');
+WideImage_Helper::font($g, 'ERASMD.TTF', 25, 'FF6600');
+pbug('###font set, drawing text');
+WideImage_Helper::text($g, 'testing wrapper1', 'left', 'bottom - 50', array('hexColor' => '00F6CC', 'rotation' => -0.75));
+pbug('###text1 drawn, drawing text 2');
+WideImage_Helper::text($g, 'testing wrapper2', 'left', 'bottom - 20', array('hexColor' => '00F6CC', 'rotation' => 0.03, 'shadowOffset' => array(3,3) ));
+pbug('###text2 drawn, saving');
+
+$g->saveToFile('wideimagetest-helper-text.jpg', 80);
+showImages('Helper text', 'wideimagetest-helper-text.jpg');

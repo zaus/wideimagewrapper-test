@@ -28,8 +28,22 @@ class WideImageWrapper {
 	 * @param WideImage_Image|string $image the image or path
 	 */
 	public function __construct($image) {
-		$this->setImage($image);
+		$this->setImage(&$image);
 	}
+
+	/**
+	 * Magic fallthrough to WideImage
+	 */
+	function __call($method, $params)
+	{
+
+		try {
+			return call_user_func_array( array(&$this->image, $method), $params);
+		} catch( Exception $ex ) {
+			throw new WideImage_InvalidCanvasMethodException("Function might not exist -- WideImage::{$method}:" . $ex->getMessage());
+		}
+	}
+
 
 	/**
 	 * Set the current image (and canvas)
@@ -49,7 +63,7 @@ class WideImageWrapper {
 		// only if we're not trying to set it externally
 		if( false !== $this->image )
 			// save it because we'll be using it a lot
-			$this->canvas = $this->image->getCanvas();
+			$this->canvas = &$this->image->getCanvas();
 	}
 
 	/**
@@ -88,6 +102,7 @@ class WideImageWrapper {
 	 * @param int $fontSize   (default 12) the font size
 	 * @param string  $hexColor   (default 000000) font color
 	 * @param float $alpha   (default 0)
+	 * @return self
 	 */
 	public function setActiveFont($fontOrPath, $fontSize = 12, $hexColor = '000000', $alpha = 0) {
 		// are we setting up the font?
@@ -104,6 +119,8 @@ class WideImageWrapper {
 		else {
 			throw new WideImage_Exception('Must provide either font path or WideImage font');
 		}
+
+		return $this; // chain
 	}//--	fn	setActiveFont
 
 	/**
@@ -138,22 +155,20 @@ class WideImageWrapper {
 		
 		// if given font, use it; otherwise use default
 		if( false !== $options['font'] ) {
-			$font = $options['font'];
+			$this->font = $options['font'];
 		}
 		// if given path to font file, use it; otherwise default
 		elseif( false !== $options['fontPath'] ) {
-			$font = $this->canvas->useFont($options['fontPath'], $options['fontSize'], GD_Utils::rgba($options['hexColor'], $options['alpha']));
+			$this->font = $this->canvas->useFont($options['fontPath'], $options['fontSize'], GD_Utils::rgba($options['hexColor'], $options['alpha']));
 		}
-		else {
-			$font = $this->font;
-		}
+		// otherwise expect lastfont
 
-		// draw text in bottom corner
-		$this->canvas->writeText($x, $y, $msg, $options['rotation'] * 360);
-
+		// add shadow first
 		// only add shadow if expected
 		if( isset($options['shadowOffset']) && false !== $options['shadowOffset'] ) {
 			// draw text again with offset, in different color for shadow effect
+			$originalColor = $this->font->color;
+			$font = $this->font; // does this clone?
 			$font->color = GD_Utils::rgba(
 				isset($options['shadowHexColor']) ? $options['shadowHexColor'] : $options['hexColor']
 				, isset( $options['shadowAlpha'] ) ? $options['shadowAlpha'] : ($options['alpha'] + 0.25)
@@ -163,14 +178,31 @@ class WideImageWrapper {
 			$this->canvas->setFont($font);
 
 			// write the shadow text at offset
+			// append in case we have "smart coordinates", adjusting for negative
 			$this->canvas->writeText(
-				$x . $options['shadowOffset'][0] > 0 ? ' + '. $options['shadowOffset'][0] : $options['shadowOffset'][0]
-				, $y . $options['shadowOffset'][1] > 0 ? ' + '. $options['shadowOffset'][1] : $options['shadowOffset'][1]
-				
-				, $msg);
-		}
+				sprintf('%s %s %s'
+					, $x
+					, $options['shadowOffset'][0] > 0 ? '+' : ''
+					, $options['shadowOffset'][0]
+					)
+				, sprintf('%s %s %s'
+					, $y
+					, $options['shadowOffset'][1] > 0 ? '+' : ''
+					, $options['shadowOffset'][1]
+					)
+				, $msg
+				, $options['rotation'] * 360);
 
-		return $this->canvas;
+			// return to "original" font
+			$this->font->color = $originalColor;
+			$this->canvas->setFont($this->font);
+		}//endif shadow
+
+		// draw text where/how indicated
+		$this->canvas->writeText($x, $y, $msg, $options['rotation'] * 360);
+
+		// chain
+		return $this;
 	}
 	#endregion --------------- text and fonts -------------------
 
@@ -182,7 +214,21 @@ class WideImageWrapper {
 	 */
 	public function save($filename) {
 		$args = func_get_args();
-		call_user_func_array(array(&$this->image, 'saveToFile'), $args);
+		switch( count($args) ) {
+			case 1:
+				return $this->image->saveToFile($args[0]);
+				break;
+			case 2:
+				return $this->image->saveToFile($args[0], $args[1]);
+				break;
+			case 3:
+				return $this->image->saveToFile($args[0], $args[1], $args[2]);
+				break;
+			default:
+				return call_user_func_array(array(&$this->image, 'saveToFile'), $args);
+				break;
+		}
+
 		//$this->image->saveToFile($filename);
 	}
 
