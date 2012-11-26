@@ -44,9 +44,49 @@ class GD_Utils {
 		return $points; // flatten?
 	}
 
+	/**
+	 * Square
+	 * @param  number  $center_x center coordinate
+	 * @param  number  $center_y center coordinate
+	 * @param  number  $width    dimensions
+	 * @param  decimal $rotation angle of rotation in percent (of 360, 0 - 1.0)
+	 * @return array            list of points of vertices
+	 */
 	public static function square($center_x, $center_y, $width, $rotation = 0) {
-		return self::radial_polygon(4, $width/2, $rotation, $center_x, $center_y);
+		return self::radial_polygon(4, $width/2, $rotation + 0.125, $center_x, $center_y);
 	}
+
+	/**
+	 * Rectangle
+	 * @param  number  $center_x center coordinate
+	 * @param  number  $center_y center coordinate
+	 * @param  number  $width    dimensions
+	 * @param  number  $height   dimensions
+	 * @param  decimal $rotation angle of rotation in percent (of 360, 0 - 1.0)
+	 * @return array            list of points of vertices
+	 */
+	public static function rect($center_x, $center_y, $width, $height, $rotation = 0) {
+		// translate to radial using given center as origin
+		$points = array(
+			self::polar(-$width/2, -$height/2),
+			self::polar( $width/2, -$height/2),
+			self::polar( $width/2,  $height/2),
+			self::polar(-$width/2,  $height/2),
+		);
+
+		pbug(__CLASS__ . '::' . __FUNCTION__, 'radial points', $points, 'x', $center_x, 'y', $center_y, 'w', $width, 'h', $height);
+
+		// translate to cartesian, adding initial rotation and offsets; flatten
+		$flattened = array();
+		foreach($points as $i => &$point) {
+			$point = self::cartesian($point[0], $point[1] + $rotation);
+	
+			$flattened []= ($point[0] + $center_x);
+			$flattened []= ($point[1] + $center_y);
+		}
+
+		return $flattened;
+	}//--	fn	rect
 
 	public static function diamond($center_x, $center_y, $width, $height, $rotation = 0) {
 		// different bisection lengths
@@ -79,6 +119,13 @@ class GD_Utils {
 	public static function magnitude($x, $y) {
 		return sqrt( pow($x, 2) + pow($y, 2) );
 	}
+
+	/**
+	 * Turn cartesian into polar
+	 * @param  number $x horizontal
+	 * @param  number $y vertical
+	 * @return array    radius,angle (in % of 360, 0-1.0)
+	 */
 	public static function polar($x, $y) {
 		// http://www.engineeringtoolbox.com/converting-cartesian-polar-coordinates-d_1347.html
 		
@@ -87,6 +134,19 @@ class GD_Utils {
 
 		// angle, in % of circle
 		$a = self::radToPercent(atan( (float)$y / (float)$x ));
+
+		// adjust?
+		if( $y < 0 ) {
+			if( $x < 0 ) {
+				$a = 0.5 + $a; // angle is positive
+			}
+			else {
+				$a = 0.25 - $a; // angle is negative, so subtract to add
+			}
+		}
+		elseif( $x < 0 ) {
+			$a = 0.5 + $a; // angle is negative, so subtract to add
+		}
 
 		return array($r, $a);
 	}
@@ -100,7 +160,12 @@ class GD_Utils {
 		return $percent * (2 * pi() );
 	}
 
-
+	/**
+	 * Turn polar coordinates into cartesian
+	 * @param  number $r radius
+	 * @param  number $a angle (in percent of 360, 0-1.0)
+	 * @return array    x,y
+	 */
 	public static function cartesian($r, $a) {
 		$rad = self::percentToRad($a);
 		## pbug( $r, $a, $rad, 'x', cos($rad), 'y', sin($rad), '----' );

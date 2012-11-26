@@ -122,13 +122,15 @@ $wrapper = new WideImageWrapper('original.jpg');
 $wrapper->setActiveFont('ERASMD.TTF', 25, 'FF6600'); // default font
 $wrapper->text('Foo bar', 'left', 'top', array('hexColor'=>'FF6600', 'shadowAlpha' => 0.70, 'shadowOffset'=>array(2, 2)));
 $wrapper->canvas->polygon( GD_Utils::star5(300, 300, 200), 5, GD_Utils::rgba('FF0000') ); // draw 5-pointed star
-$shapes []= $wrapper->star( 5, 200, 500, 200, 0, GD_Utils::rgba('00FF00') ); // fill 5-pointed star
-$shapes []= $wrapper->star( 11, 200, 800, 300, 0, GD_Utils::rgba('00FF00') ); // fill 11-pointed star
-$shapes []= $wrapper->star( 7, 100, 100, 100, 0, GD_Utils::rgba('F0F000') ); // 7 pointed star upper left
-$shapes []= $wrapper->star( 8, 100, 100, 300, 0, GD_Utils::rgba('FF6600') ); // 8 pointed star...not working well
-$shapes []= $wrapper->star( 6, 100, 200, 300, 0, GD_Utils::rgba('FF0066') ); // 8 pointed star...not working well
-$shapes []= $wrapper->star( 10, 100, 300, 100, 0, GD_Utils::rgba('FF6600') ); // 10 pointed star
+$shapes []= $wrapper->star( 5, 200, 500, 200, GD_Utils::rgba('00FF00'), 0, 'filledpolygon', true ); // fill 5-pointed star
+$shapes []= $wrapper->star( 11, 200, 800, 300, GD_Utils::rgba('00FF00'), 0, 'filledpolygon', true ); // fill 11-pointed star
+$shapes []= $wrapper->star( 7, 100, 100, 100, GD_Utils::rgba('F0F000'), 0, 'filledpolygon', true ); // 7 pointed star upper left
+$shapes []= $wrapper->star( 8, 100, 100, 300, GD_Utils::rgba('FF6600'), 0, 'filledpolygon', true ); // 8 pointed star...not working well
+$shapes []= $wrapper->star( 6, 100, 200, 300, GD_Utils::rgba('FF0066'), 0, 'filledpolygon', true ); // 8 pointed star...not working well
+$shapes []= $wrapper->star( 10, 100, 300, 100, GD_Utils::rgba('FF6600'), 0, 'filledpolygon', true ); // 10 pointed star
 $wrapper->save('wideimagetest.class.jpg', 60);
+
+pbug('polygon-stars', $shapes);
 
 showImages('WideImageWrapper', 'wideimagetest.class.jpg'); //======================
 #pbug($shapes);
@@ -143,10 +145,10 @@ $watermark->makeTransparent(); //$watermark->image->fill(0,0,$watermark->image->
 //$watermark->image->colorTransparent( GD_Utils::rgba('000000', 1));
 
 $watermark2 = WideImageWrapper::copy($watermark);
-$watermark->star(5, 100, 'center', 'center', 0, GD_Utils::rgba('FF0000'));
+$watermark->star(5, 100, 'center', 'center', GD_Utils::rgba('FF0000'));
 $watermark->save('watermark-star.png');
 
-$watermark2->star(5, 100, '50%', '50%', 0, GD_Utils::rgba('00FF00'));
+$watermark2->star(5, 100, '50%', '50%', GD_Utils::rgba('00FF00'));
 $watermark2->save('watermark-star2.png');
 
 showImages('Transparent Watermarks', 'watermark-star.png', 'watermark-star2.png'); //======================
@@ -210,8 +212,23 @@ $wrapper
 	->save('wideimagetest-wrapper-text.jpg')
 	;
 
-showImages('Helper text', 'wideimagetest-wrapper-text.jpg');
+showImages('Wrapper text', 'wideimagetest-wrapper-text.jpg'); // ==============================
 
+// full test
+
+$wrapper = new WideImageWrapper('original.jpg');
+$wrapper
+	->square(/*w*/'10%', /*x*/'left + 10%', /*y*/'middle', /*color*/'22C6F6')
+	->rect(/*w*/'10%', /*h*/'20%', /*x*/'left + 10%', /*y*/'middle', /*color*/'22F6C6', /*angle*/0.25)
+	->star(5, /*r*/'20%', /*x*/'center', /*y*/'middle', /*color*/'F6C622')
+	->star(6, /*r*/'100', /*x*/'right - 100', /*y*/'middle', /*color*/'C622F6')
+	->setActiveFont('ERASMD.TTF', 25, 'FF6600')
+	->text('testing wrapper1', 'left', 'bottom - 50', array('hexColor' => '00F6CC', 'rotation' => -0.75))
+	->text('testing wrapper2', 'left', 'bottom - 20', array('hexColor' => '00F6CC', 'rotation' => 0.03, 'shadowOffset' => array(3,3) ))
+	->save('wideimagetest-wrapper-shapes.jpg')
+	;
+
+showImages('All Shapes - render example', 'wideimagetest-wrapper-shapes.jpg'); // ==============================
 # ================== helper, not wrapper ================
 
 /**/
