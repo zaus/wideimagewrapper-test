@@ -17,6 +17,27 @@ class GD_Utils {
 	#region ------------ shapes --------------------
 
 	/**
+	 * Given a list of polar points, rotate around a central point
+	 * @param  array $points   list of polar points
+	 * @param  decimal $rotation angle of rotation in percent (of 360, 0 - 1.0)
+	 * @param  number  $center_x center coordinate
+	 * @param  number  $center_y center coordinate
+	 * @return array           flattened points, given as x1, y1, x2, y2...
+	 */
+	private static function polarAsFlattenedCartesianWithRotation($points, $rotation, $center_x, $center_y) {
+		// translate to cartesian, adding initial rotation and offsets; flatten
+		$flattened = array();
+		foreach($points as $i => &$point) {
+			$point = self::cartesian($point[0], (float)$point[1] + (float)$rotation);
+	
+			$flattened []= ($point[0] + $center_x);
+			$flattened []= ($point[1] + $center_y);
+		}
+
+		return $flattened;
+	}
+
+	/**
 	 * Calculate the vertices of a radial polygon with the given number of points
 	 * @param  int  $num_points    number of outer vertices
 	 * @param  number  $radius        distance from center to vertex
@@ -53,7 +74,9 @@ class GD_Utils {
 	 * @return array            list of points of vertices
 	 */
 	public static function square($center_x, $center_y, $width, $rotation = 0) {
-		return self::radial_polygon(4, $width/2, $rotation + 0.125, $center_x, $center_y);
+		// radial polygon "works", but is actually too small
+		//return self::radial_polygon(4, $width/2, $rotation + 0.125, $center_x, $center_y);
+		return self::rect($center_x, $center_y, $width, $width, $rotation);
 	}
 
 	/**
@@ -66,7 +89,7 @@ class GD_Utils {
 	 * @return array            list of points of vertices
 	 */
 	public static function rect($center_x, $center_y, $width, $height, $rotation = 0) {
-		// translate to radial using given center as origin
+		// translate to radial, starting with regular origin
 		$points = array(
 			self::polar(-$width/2, -$height/2),
 			self::polar( $width/2, -$height/2),
@@ -74,23 +97,28 @@ class GD_Utils {
 			self::polar(-$width/2,  $height/2),
 		);
 
-		pbug(__CLASS__ . '::' . __FUNCTION__, 'radial points', $points, 'x', $center_x, 'y', $center_y, 'w', $width, 'h', $height);
-
-		// translate to cartesian, adding initial rotation and offsets; flatten
-		$flattened = array();
-		foreach($points as $i => &$point) {
-			$point = self::cartesian($point[0], $point[1] + $rotation);
-	
-			$flattened []= ($point[0] + $center_x);
-			$flattened []= ($point[1] + $center_y);
-		}
-
-		return $flattened;
+		// adjust for rotation and new center
+		return self::polarAsFlattenedCartesianWithRotation($points, $rotation, $center_x, $center_y);
 	}//--	fn	rect
 
+
 	public static function diamond($center_x, $center_y, $width, $height, $rotation = 0) {
-		// different bisection lengths
+		// translate to radial, starting with regular origin
+		$points = array(
+			self::polar(-$width/2, 0),
+			self::polar( 0,  $height/2),
+			self::polar( $width/2, 0),
+			self::polar( 0, -$height/2),
+		);
+
+		// adjust for rotation and new center
+		return self::polarAsFlattenedCartesianWithRotation($points, $rotation, $center_x, $center_y);
 	}
+
+	public static function triangle($center_x, $center_y, $width, $rotation = 0) {
+		return self::radial_polygon(3, $width/2, $rotation, $center_x, $center_y, 2);
+	}
+
 
 	public static function star($num_points, $center_x, $center_y, $width, $rotation = 0) {
 		// star composed of 2 radial polygons -- arms and "the point where the arms connect"
@@ -104,8 +132,8 @@ class GD_Utils {
 
 	/* don't use -- instead make 2 triangles */
 	public static function star6($center_x, $center_y, $width, $rotation = 0) {
-		$first = self::radial_polygon(3, $width/2, $rotation, $center_x, $center_y);
-		$second = self::radial_polygon(3, $width/2, $rotation+0.5, $center_x, $center_y);
+		$first = self::triangle($width/2, $rotation, $center_x, $center_y);
+		$second = self::triangle($width/2, $rotation+0.5, $center_x, $center_y);
 		return array_merge($first, $second);
 	}
 
@@ -133,8 +161,11 @@ class GD_Utils {
 		$r = self::magnitude($x, $y);
 
 		// angle, in % of circle
-		$a = self::radToPercent(atan( (float)$y / (float)$x ));
+		// use atan2 to correct for quadrant --
+		// thank you http://en.wikipedia.org/wiki/Inverse_trigonometric_functions  and  http://www.php.net/manual/en/function.atan2.php#99318
+		$a = self::radToPercent(atan2( (float)$y , (float)$x ));
 
+		/*
 		// adjust?
 		if( $y < 0 ) {
 			if( $x < 0 ) {
@@ -147,7 +178,7 @@ class GD_Utils {
 		elseif( $x < 0 ) {
 			$a = 0.5 + $a; // angle is negative, so subtract to add
 		}
-
+		*/
 		return array($r, $a);
 	}
 

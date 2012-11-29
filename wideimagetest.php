@@ -10,7 +10,7 @@ function showImages($label, $images) {
 	array_shift($images); // pop label
 
 	?>
-	<div class="image">
+	<div class="image" id="<?php echo preg_replace('/[^a-zA-Z0-9]+/', '', $label); ?>">
 		<h3><?php echo $label; ?></h3>
 		<?php foreach($images as $src) : ?>
 		<div class="image" style="position:relative;">
@@ -218,13 +218,29 @@ showImages('Wrapper text', 'wideimagetest-wrapper-text.jpg'); // ===============
 
 $wrapper = new WideImageWrapper('original.jpg');
 $wrapper
-	->square(/*w*/'10%', /*x*/'left + 10%', /*y*/'middle', /*color*/'22C6F6')
-	->rect(/*w*/'10%', /*h*/'20%', /*x*/'left + 10%', /*y*/'middle', /*color*/'22F6C6', /*angle*/0.25)
-	->star(5, /*r*/'20%', /*x*/'center', /*y*/'middle', /*color*/'F6C622')
-	->star(6, /*r*/'100', /*x*/'right - 100', /*y*/'middle', /*color*/'C622F6')
+	// text -------------
 	->setActiveFont('ERASMD.TTF', 25, 'FF6600')
 	->text('testing wrapper1', 'left', 'bottom - 50', array('hexColor' => '00F6CC', 'rotation' => -0.75))
 	->text('testing wrapper2', 'left', 'bottom - 20', array('hexColor' => '00F6CC', 'rotation' => 0.03, 'shadowOffset' => array(3,3) ))
+	// parallelograms -------------
+	->square(/*w*/'10%', /*x*/'left + 10%', /*y*/'middle', /*color*/'22C6F6')
+		->text('1', /*x*/'left + 10%', /*y*/'middle')
+	->rect(/*w*/'10%', /*h*/'20%', /*x*/'left + 10%', /*y*/'top + 10%', /*color*/'22F6C6', /*angle*/0.1)
+		->text('2', /*x*/'left + 10%', /*y*/'top + 10%')
+	->diamond(/*w*/'30%', /*h*/'10%', /*x*/'left + 30%', /*y*/'top + 20%', /*color*/'F833C8', /*angle*/(0.1+0.25))
+		->text('3', /*x*/'left + 30%', /*y*/'top + 20%')
+	->diamond(/*w*/'10%', /*h*/'30%', /*x*/'left + 30%', /*y*/'top + 20%', /*color*/'33F8C8', /*angle*/0.1)
+		->text('4', /*x*/'left + 30%', /*y*/'top + 20%')
+	// prove that triangle is just 3-pointed radial polygon -------------
+	->triangle(/*r*/'20%', /*x*/'center + 25%', /*y*/'25%', /*color*/'7799AA')
+		->text('5', /*x*/'center + 25%', /*y*/'25%')
+	->star(3, /*r*/'20%', /*x*/'center + 25%', /*y*/'25%', /*color*/'99AA77', /*angle*/0.5)
+		->text('6', /*x*/'center + 25%', /*y*/'25%')
+	// normal stars -------------
+	->star(5, /*r*/'20%', /*x*/'center', /*y*/'middle', /*color*/'F6C622')
+		->text('7', /*x*/'center', /*y*/'middle')
+	->star(6, /*r*/'100', /*x*/'right - 100', /*y*/'middle', /*color*/'C622F6')
+		->text('8', /*x*/'right - 100', /*y*/'middle')
 	->save('wideimagetest-wrapper-shapes.jpg')
 	;
 

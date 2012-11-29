@@ -147,7 +147,7 @@ class WideImageWrapper {
 	 * @param  array $options list of optional options overriding $this->_defaultFontOptions; includes fontSize, fontPath, shadowOffset, hexColor, alpha, rotation
 	 * @return WideImage_Canvas          canvas object for chaining
 	 */
-	public function text($msg, $x, $y, $options) {
+	public function text($msg, $x, $y, $options = array()) {
 		// merge options
 		$options = array_merge($this->_defaultFontOptions, $options);
 
@@ -232,9 +232,6 @@ class WideImageWrapper {
 		//$this->image->saveToFile($filename);
 	}
 
-
-	#region ---------------- shapes -----------------------
-	
 	/**
 	 * Make the image transparent using position
 	 * @param  integer $x horizontal
@@ -246,7 +243,16 @@ class WideImageWrapper {
 		return $this->image;
 	}
 
-	private function smart_point($x, $y) {
+
+	#region ---------------- shapes -----------------------
+	
+	/**
+	 * Scale given coordinates to fit current image
+	 * @param  number|smart $x horizontal coord (allows Smart coords)
+	 * @param  number|smart $y vertical coord (allows Smart coords)
+	 * @return array    new x, y
+	 */
+	public function smart_point($x, $y) {
 		if(!is_numeric($x)) {
 			$x = WideImage_Coordinate::fix($x, $this->image->getWidth()/*, $width*/);
 		}
@@ -261,8 +267,61 @@ class WideImageWrapper {
 
 	function star_odd($num_points, $r, $x, $y, $angle, $color, $drawingMethod, $returnPoints = false) {
 		list($x, $y) = $this->smart_point($x, $y);
-		$points = GD_Utils::star($num_points, $x, $y, $r, $angle);
+		$points = GD_Utils::radial_polygon($num_points, $r, $angle, $x, $y);
+		// now, must calculate the inner X-agon (polyhedron) and interleave points
+		// X-agon is rotated half-step from outer star
+		// formula for X-agon inside star based on http://mathcentral.uregina.ca/QQ/database/QQ.09.06/s/chetna2.html
+		// interior angles of X-agon = 180 + 180 x (num_points - 3) = 180 * (num_points-2) = "armpit" of star = opposite of inner X-agon
+		// 
+		// we want to calculate Ri (inner or "armpit" radius) given R (star radius), S, A
+		// S = half of interior star angle = 360 / N / 2
+		// A = half of interior polyhedron angle = 180 * (N-2) / 2
+		// 
+		// 1. cos S = (Ri + x) / R	==> R cos S = (Ri + x)	==> R cos S - Ri = x
+		// 2. tan A = b / x			==> x tan A = b
+		// 3. tan S = b / (Ri + x)	==> (Ri + x) tan S = b
+		// 4. x tan A = (Ri + x) tan S
+		// 5. x tan A / tan S = (Ri + x)
+		// 6. x tan A / tan S - x = Ri
+		// 7. x (tan A / tan S - 1) = Ri
+		// 8. x (tan A / tan S - 1) = Ri
+		//    1 into 8
+		// 10. (R cos S - Ri) (tan A / tan S - 1) = Ri	==> (A - B) (C - D) = Ri ==> AC - AD - BC + BD = Ri
+		// 11. R cos S (tan A / tan S) - Ri (tan A / tan S) - R cos S + Ri = Ri
+		// 12. R cos S / tan S * tan A - Ri (tan A / tan S) - R cos S = 0
+		// 13. R cos S / tan S * tan A - R cos S = Ri (tan A / tan S)
+		// 13. R cos S / tan S * tan A * (tan S / tan A) - R cos S * (tan S / tan A) = Ri
+		// 13. R cos S - R cos S * tan S / tan A = Ri
+		// 13. R cos S - R cos S * (sin S / cos S) / tan A = Ri
+		// 13. R cos S - R sin S / tan A = Ri
+		// 13. R (cos S - sin S / tan A) = Ri
+		// 
+		// get half of angles here so we don't need to later
+		$angleArmpit = deg2rad( 180 * (float)($num_points - 2) ) / 2;
+		// interior angles of star = 360 / num_points
+		$angleStar = deg2rad( 360 / (float)$num_points ) / 2;
+		// r_x = r * sin(interior) * [ 1 / tan(interior) - 1 / tan(armpit)]
+		$rInner = $r * (cos($angleStar) - sin($angleStar) / tan($angleArmpit));
+		pbug($angleArmpit, $angleStar, $r, $rInner, cos($angleStar), sin($angleStar), tan($angleArmpit));
+		$innerPoints = GD_Utils::radial_polygon($num_points, $rInner, $angle+0.5, $x, $y);
+
 		$this->canvas->$drawingMethod( $points, $num_points, $color );
+		$this->canvas->$drawingMethod( $innerPoints, $num_points, GD_Utils::rgba('CCCCCC') );
+
+		/*
+		// interleave
+		$istop = $num_points * 2; // since the point array is flattened, it'll have n*2 items
+		$newPoints = array();
+		for($i = 0; $i < $istop; $i += 2) {
+			// outer shape
+			$newPoints []= $points[$i];
+			$newPoints []= $points[$i+1];
+			// inner shape
+			$newPoints []= $innerPoints[$i];
+			$newPoints []= $innerPoints[$i+1];
+		}
+		$this->canvas->$drawingMethod( $newPoints, $num_points * 2, $color );
+		*/
 		return $returnPoints ? $points : $this;
 	}
 	function star_even($num_points, $r, $x, $y, $angle, $color, $drawingMethod, $returnPoints = false) {
@@ -286,6 +345,30 @@ class WideImageWrapper {
 		return $returnPoints ? $points : $this;
 	}
 
+
+	/**
+	 * Draw a triangle
+	 * @param  number  $r             radius (arm length)
+	 * @param  number|smart  $x             center x coordinate
+	 * @param  number|smart  $y             center y coordinate
+	 * @param  string  $color         hex color code
+	 * @param  decimal  $angle         rotation, in percent (0 - 1.0)
+	 * @param  string  $drawingMethod regular GD image rendering method (filledpolygon or drawpolygon)
+	 * @param  boolean $returnPoints  (default false) if true, return the list of points, otherwise chain
+	 * @return mixed                 either the Wrapper (for chaining) or the list of points if $returnPoints = true
+	 */
+	public function triangle($r, $x, $y, $color, $angle = 0, $drawingMethod = 'filledpolygon', $returnPoints = false) {
+		// fix parameters
+		list($x, $y) = $this->smart_point($x, $y);
+		if( is_string($color) ) $color = GD_Utils::rgba($color, 0);
+		// allow smart coords for radius too
+		$r2 = $this->smart_point($r, 0);
+		
+		$points = GD_Utils::triangle($x, $y, $r2[0], $angle);
+		$this->canvas->$drawingMethod( $points, 3, $color );
+		return $returnPoints ? $points : $this;
+	}
+
 	/**
 	 * Draw a star
 	 * @param  int  $num_points    the number of points
@@ -299,7 +382,7 @@ class WideImageWrapper {
 	 * @return mixed                 either the Wrapper (for chaining) or the list of points if $returnPoints = true
 	 */
 	public function star($num_points, $r, $x, $y, $color, $angle = 0, $drawingMethod = 'filledpolygon', $returnPoints = false) {
-		// allow smart coords
+		// allow smart coords for radius too
 		$r2 = $this->smart_point($r, 0);
 		### pbug('smarter radius', $r2[0], $r, func_get_args());
 
@@ -341,29 +424,71 @@ class WideImageWrapper {
 	 * @return mixed                 either the Wrapper (for chaining) or the array of points if $returnPoints = true
 	 */
 	public function rect($w, $h, $x, $y, $color, $angle = 0, $drawingMethod = 'filledpolygon', $returnPoints = false) {
+		return $this->regularShapeWithDimensions(array('GD_Utils', 'rect'), $w, $h, $x, $y, $color, $angle, $drawingMethod, $returnPoints);
+	}
+	
+	/**
+	 * Diamond
+	 * @param  number|smart  $w    bisection length
+	 * @param  number|smart  $h   bisection length
+	 * @param  number|smart  $x center coordinate
+	 * @param  number|smart  $y center coordinate
+	 * @param  decimal $angle angle of rotation in percent (of 360, 0 - 1.0)
+	 * @param  string  $drawingMethod regular GD image rendering method (filledpolygon or drawpolygon)
+	 * @param  boolean $returnPoints  (default false) if true, return the list of points, otherwise chain
+	 * @return mixed                 either the Wrapper (for chaining) or the array of points if $returnPoints = true
+	 */
+	public function diamond($w, $h, $x, $y, $color, $angle = 0, $drawingMethod = 'filledpolygon', $returnPoints = false) {
+		return $this->regularShapeWithDimensions(array('GD_Utils', 'diamond'), $w, $h, $x, $y, $color, $angle, $drawingMethod, $returnPoints);
+	}
+
+	/**
+	 * Square
+	 * @param  number|smart  $w    dimensions
+	 * @param  number|smart  $x center coordinate
+	 * @param  number|smart  $y center coordinate
+	 * @param  decimal $angle angle of rotation in percent (of 360, 0 - 1.0)
+	 * @param  string  $drawingMethod regular GD image rendering method (filledpolygon or drawpolygon)
+	 * @param  boolean $returnPoints  (default false) if true, return the list of points, otherwise chain
+	 * @return mixed                 either the Wrapper (for chaining) or the array of points if $returnPoints = true
+	 */
+	public function square($w, $x, $y, $color, $angle = 0, $drawingMethod = 'filledpolygon', $returnPoints = false) {
+		return $this->regularShapeWithDimensions(array(&$this, 'squareWithNormalizedParams'), $w, $w, $x, $y, $color, $angle, $drawingMethod, $returnPoints);
+	}
+
+
+
+	/**
+	 * Interstitial helper function so that we can call actual square method as callback with same parameter signature
+	 */
+	private function squareWithNormalizedParams($x, $y, $w, $h, $angle) {
+		return GD_Utils::square($x, $y, $w, $angle);
+	}
+
+	/**
+	 * Rectangle
+	 * @param  function $pointsMethod   the function for determining points
+	 * @param  number|smart  $w    dimensions
+	 * @param  number|smart  $h   dimensions
+	 * @param  number|smart  $x center coordinate
+	 * @param  number|smart  $y center coordinate
+	 * @param  decimal $angle angle of rotation in percent (of 360, 0 - 1.0)
+	 * @param  string  $drawingMethod regular GD image rendering method (filledpolygon or drawpolygon)
+	 * @param  boolean $returnPoints  (default false) if true, return the list of points, otherwise chain
+	 * @return mixed                 either the Wrapper (for chaining) or the array of points if $returnPoints = true
+	 */
+	protected function regularShapeWithDimensions($pointsMethod, $w, $h, $x, $y, $color, $angle, $drawingMethod, $returnPoints) {
 		// fix parameters
 		if( is_string($color) ) $color = GD_Utils::rgba($color, 0);
 		list($x, $y) = $this->smart_point($x, $y);
 		list($w, $h) = $this->smart_point($w, $h); // necessary?  only for %, really
 
-		$points = GD_Utils::rect($x, $y, $w, $h, $angle);
+		$points = call_user_func($pointsMethod, $x, $y, $w, $h, $angle);
 
-		pbug(__FUNCTION__, 'width', $w, 'height', $h, 'x', $x, 'y', $y, $points); ###
 		$this->canvas->$drawingMethod( $points, 4, $color );
 		return $returnPoints ? $points : $this;
 	}
-	
-	public function square($w, $x, $y, $color, $angle = 0, $drawingMethod = 'filledpolygon', $returnPoints = false) {
-		// fix parameters
-		if( is_string($color) ) $color = GD_Utils::rgba($color, 0);
-		list($x, $y) = $this->smart_point($x, $y);
-		list($w, $h) = $this->smart_point($w, 0); // necessary?  only for %, really
 
-		$points = GD_Utils::square($x, $y, $w, $angle);
-		pbug(__FUNCTION__, 'width', $w, 'x', $x, 'y', $y, $points); ###
-		$this->canvas->$drawingMethod( $points, 4, $color );
-		return $returnPoints ? $points : $this;
-	}
 
 	#endregion ---------------- shapes -----------------------
 	
