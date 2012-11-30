@@ -354,12 +354,11 @@ class WideImageWrapper {
 	 * @param  number|smart  $x             center x coordinate
 	 * @param  number|smart  $y             center y coordinate
 	 * @param  string  $color         hex color code
-	 * @param  decimal  $angle         rotation, in percent (0 - 1.0)
 	 * @param  string  $drawingMethod regular GD image rendering method (filledellipse or ellipse)
 	 * @param  boolean $returnPoints  (default false) if true, return the list of points, otherwise chain
 	 * @return mixed                 either the Wrapper (for chaining) or the list of points if $returnPoints = true
 	 */
-	public function circle($r, $x, $y, $color, $angle = 0, $drawingMethod = 'filledellipse', $returnPoints = false) {
+	public function circle($r, $x, $y, $color, $drawingMethod = 'filledellipse', $returnPoints = false) {
 		// fix parameters
 		list($x, $y) = $this->smart_point($x, $y);
 		if( is_string($color) ) $color = GD_Utils::rgba($color, 0);
@@ -545,9 +544,9 @@ class WideImageWrapper {
 		$this->square(/*w*/$r, /*x*/$x, /*y*/$y, /*color*/$color, $angle, sprintf('%spolygon', $drawingMethod ));
 	
 		/// TODO - figure out how to draw, not fill
-		$drawingMethod = "{$drawingMethod}arc";
 		/*
-
+		$drawingMethod = "{$drawingMethod}arc";
+		
 		$this->canvas->$drawingMethod($x, $y, $r, $r, ($angle-0.5)*360, ($angle+0.25)*360, $color, IMG_ARC_EDGED);
 		$this->canvas->$drawingMethod($x, $y+$r, $r, $r, ($angle-0.5)*360, ($angle+0.25)*360, $color, IMG_ARC_PIE);
 		$this->canvas->$drawingMethod($x, $y+2*$r, $r, $r, ($angle-0.5)*360, ($angle+0.25)*360, $color, IMG_ARC_CHORD);
@@ -557,12 +556,24 @@ class WideImageWrapper {
 		// rotate center around point
 		list($dx, $dy) = GD_Utils::cartesian($r/2, $angle);
 		##$this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
-		$this->canvas->$drawingMethod($x + $dx, $y + $dy, $r, $r, ($angle-0.25)*360, ($angle+0.25)*360, $color, IMG_ARC_PIE);
+		$this->heartLobe($x + $dx, $y + $dy, $r, $angle, $color, $drawingMethod);
 		list($dx, $dy) = GD_Utils::cartesian($r/2, $angle - 0.25);
 		## $this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
-		$this->canvas->$drawingMethod($x + $dx, $y + $dy, $r, $r, ($angle-0.5)*360, ($angle)*360, $color, IMG_ARC_PIE);
+		$this->heartLobe($x + $dx, $y + $dy, $r, $angle-0.25, $color, $drawingMethod);
 		
 		return $this; // chain
+	}
+
+	/**
+	 * Helper method to draw individual lobes, switching out for style (filled or not)
+	 */
+	private function heartLobe($x, $y, $r, $angle, $color, $isFilled = true) {
+		if( $isFilled ) {
+			$this->canvas->filledarc($x, $y, $r, $r, ($angle-0.25)*360, ($angle+0.25)*360, $color, IMG_ARC_PIE);
+		}
+		else {
+			$this->canvas->arc($x, $y, $r, $r, ($angle-0.25)*360, ($angle+0.25)*360, $color);
+		}
 	}
 
 	#endregion ---------------- shapes -----------------------

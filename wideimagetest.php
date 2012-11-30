@@ -296,10 +296,12 @@ $wrapper
 	->setActiveFont('ERASMD.TTF', 18, 'FF6600')
 	->heart(/*r*/'100', /*x*/'25%', /*y*/'75%', /*color*/'F60000', 0.14)
 		->text('heart 50 25% 75% 0.14', /*x*/'25%', /*y*/'75%')
+	->heart(/*r*/'100', /*x*/'75%', /*y*/'75%', /*color*/'00F600', -0.36, '')
+		->text('hollow heart', /*x*/'75%', /*y*/'75%')
 	->circle(/*r*/'15%', /*x*/'75%', /*y*/'25%', /*color*/'00F600')
 		->text('circle', /*x*/'75%', /*y*/'25%')
-	->circle(/*r*/'15%', /*x*/'25%', /*y*/'75%', /*color*/'0000F6', '')
-		->text('hollow circle', /*x*/'25%', /*y*/'75%')
+	->circle(/*r*/'15%', /*x*/'25%', /*y*/'25%', /*color*/'0000F6', 'ellipse')
+		->text('hollow circle', /*x*/'25%', /*y*/'25%')
 	->save('wideimagetest-wrapper-heart.jpg')
 	;
 
