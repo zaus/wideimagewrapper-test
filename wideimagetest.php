@@ -143,7 +143,7 @@ $watermark->makeTransparent(); //$watermark->image->fill(0,0,$watermark->image->
 //$watermark->image->colorTransparent( GD_Utils::rgba('000000', 1));
 
 $watermark2 = WideImageWrapper::copy($watermark);
-$watermark->star(5, 100, 'center', 'center', GD_Utils::rgba('FF0000'));
+$watermark->star(5, '50%', 'center', 'center', GD_Utils::rgba('FF0000'));
 $watermark->save('watermark-star.png');
 
 $watermark2->star(5, 100, '50%', '50%', GD_Utils::rgba('00FF00'));
@@ -294,10 +294,12 @@ showImages('Split Operation - wrapper', 'wideimagetest-wrapper-splitops.jpg'); /
 $wrapper = new WideImageWrapper('original.jpg');
 $wrapper
 	->setActiveFont('ERASMD.TTF', 18, 'FF6600')
-	->heart(/*r*/'100', /*x*/'25%', /*y*/'75%', /*color*/'F60000')
-		->text('heart 50 25% 75% 0.3', /*x*/'25%', /*y*/'75%')
+	->heart(/*r*/'100', /*x*/'25%', /*y*/'75%', /*color*/'F60000', 0.14)
+		->text('heart 50 25% 75% 0.14', /*x*/'25%', /*y*/'75%')
 	->circle(/*r*/'15%', /*x*/'75%', /*y*/'25%', /*color*/'00F600')
 		->text('circle', /*x*/'75%', /*y*/'25%')
+	->circle(/*r*/'15%', /*x*/'25%', /*y*/'75%', /*color*/'0000F6', '')
+		->text('hollow circle', /*x*/'25%', /*y*/'75%')
 	->save('wideimagetest-wrapper-heart.jpg')
 	;
 

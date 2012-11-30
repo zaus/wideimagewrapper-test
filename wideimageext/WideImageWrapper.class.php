@@ -413,8 +413,8 @@ class WideImageWrapper {
 	public function star($num_points, $r, $x, $y, $color, $angle = 0, $drawingMethod = 'filledpolygon', $returnPoints = false) {
 		// allow smart coords for radius too
 		$r2 = $this->smart_point($r, 0);
-		### pbug('smarter radius', $r2[0], $r, func_get_args());
-
+		##pbug('smarter radius', $r2[0], $r, func_get_args());
+		
 		// fix parameters
 		if( is_string($color) ) $color = GD_Utils::rgba($color, 0);
 
@@ -530,23 +530,37 @@ class WideImageWrapper {
 	 * @return mixed                 either the Wrapper (for chaining) or the list of points if $returnPoints = true
 	 */
 	public function heart($r, $x, $y, $color, $angle = 0, $drawingMethod = 'filled', $returnPoints = false) {
-		// http://www.mathematische-basteleien.de/heart.htm
-		//http://mathworld.wolfram.com/HeartCurve.html
-
-		// draw a diamond and 2 circles, call it a day
+		// fix parameters
+		if( is_string($color) ) $color = GD_Utils::rgba($color, 0);
 		list($x, $y) = $this->smart_point($x, $y);
 		list($r, $r2) = $this->smart_point($r, 0); // necessary?  only for %, really
 		// adjust for orientation
 		$angle -= 0.125;
 
+		// http://www.mathematische-basteleien.de/heart.htm
+		//http://mathworld.wolfram.com/HeartCurve.html
+
+		// draw a diamond and 2 circles, call it a day
+
 		$this->square(/*w*/$r, /*x*/$x, /*y*/$y, /*color*/$color, $angle, sprintf('%spolygon', $drawingMethod ));
-		
+	
+		/// TODO - figure out how to draw, not fill
+		$drawingMethod = "{$drawingMethod}arc";
+		/*
+
+		$this->canvas->$drawingMethod($x, $y, $r, $r, ($angle-0.5)*360, ($angle+0.25)*360, $color, IMG_ARC_EDGED);
+		$this->canvas->$drawingMethod($x, $y+$r, $r, $r, ($angle-0.5)*360, ($angle+0.25)*360, $color, IMG_ARC_PIE);
+		$this->canvas->$drawingMethod($x, $y+2*$r, $r, $r, ($angle-0.5)*360, ($angle+0.25)*360, $color, IMG_ARC_CHORD);
+		$this->canvas->$drawingMethod($x+$r, $y+2*$r, $r, $r, ($angle-0.5)*360, ($angle+0.25)*360, $color, IMG_ARC_NOFILL);
+		*/
+	
 		// rotate center around point
 		list($dx, $dy) = GD_Utils::cartesian($r/2, $angle);
-		$this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
+		##$this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
+		$this->canvas->$drawingMethod($x + $dx, $y + $dy, $r, $r, ($angle-0.25)*360, ($angle+0.25)*360, $color, IMG_ARC_PIE);
 		list($dx, $dy) = GD_Utils::cartesian($r/2, $angle - 0.25);
-		$this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
-
+		## $this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
+		$this->canvas->$drawingMethod($x + $dx, $y + $dy, $r, $r, ($angle-0.5)*360, ($angle)*360, $color, IMG_ARC_PIE);
 		
 		return $this; // chain
 	}
