@@ -115,6 +115,26 @@ class GD_Utils {
 		return self::polarAsFlattenedCartesianWithRotation($points, $rotation, $center_x, $center_y);
 	}
 
+	/**
+	 * Prepare a circle
+	 * @param  number $center_x eenter x coord
+	 * @param  number $center_y middle y coord
+	 * @param  number $radius   how much sape needed
+	 * @return void           n/a
+	 */
+	public static function circle($center_x, $center_y, $radius) {
+		// translate to radial, starting with regular origin
+		$points = array();
+		$x = $y = 0;
+		for($a = 0; $a <= 1; $a += 0.02) {
+			list($x, $y)= self::cartesian($radius, $a);
+			$points[] = $x;
+			$points[] = $y;
+		}
+
+		return $points;
+	}
+
 	public static function triangle($center_x, $center_y, $width, $rotation = 0) {
 		return self::radial_polygon(3, $width/2, $rotation, $center_x, $center_y, 2);
 	}
@@ -137,9 +157,46 @@ class GD_Utils {
 		return array_merge($first, $second);
 	}
 
-	public static function heart($center_x, $center_y, $width, $height, $rotation = 0) {
 
-	}
+	// public static function heart($center_x, $center_y, $width, $height, $rotation = 0) {
+		
+		// draw a diamond and 2 circles
+		
+		// // http://mathworld.wolfram.com/HeartCurve.html
+		// // http://www.mathematische-basteleien.de/heart.htm
+		// /*
+		// x = 16 sin^3t = A sin^3 (a2 t)
+		// y = 13 cos t - 5 cos (2t) - 2 cos (3t) - cos (4t) = B cos t - C cos(c2 t) - D cos (d2 t) - cos (e t)
+		// for -1 < t < 1
+		//  */
+		// $A = 16;
+		// $a2 = 3;
+		// $B = 13;
+		// $b2 = 1;
+		// $C = 5;
+		// $c2 = 2;
+		// $D = 2;
+		// $d2 = 3;
+		// $E = 1;
+		// $e2 = 4;
+
+		// $points = array();
+		// for($i = -1; $i <= 1; $i += 0.02) {
+		// 	$t = $rotation + $i;
+		// 	$points []= $center_x + $width * ( /* x */ $A * pow(sin($a2 * $t), 3) );
+		// 	$points []= $center_y + $width * ( /* y */ $B *cos($b2 * $t) - $C * cos($c2 * $t) - $D * cos($d2 * $t) - $E * cos($e2 * $t) );
+		// }
+
+		// return $points;
+
+
+		// /*
+		// http://www.wolframalpha.com/input/?i=polar+r%3D%28sin%28t%29*sqrt%28abs%28cos%28t%29%29%29%29%2F%28sin%28t%29++%2B+7%2F5%29+-2*sin%28t%29+%2B++2
+		// r=(sin(t)*sqrt(abs(cos(t))))/(sin(t)  + 7/5) -2*sin(t) +  2
+		//  */
+		
+		// $r=(sin($t)*sqrt(abs(cos($t))))/(sin($t)  + 7 / 5) - 2 * sin($t) + 2
+	// }
 
 	#endregion ------------ shapes --------------------
 

@@ -130,8 +130,6 @@ $shapes []= $wrapper->star( 6, 100, 200, 300, GD_Utils::rgba('FF0066'), 0, 'fill
 $shapes []= $wrapper->star( 10, 100, 300, 100, GD_Utils::rgba('FF6600'), 0, 'filledpolygon', true ); // 10 pointed star
 $wrapper->save('wideimagetest.class.jpg', 60);
 
-pbug('polygon-stars', $shapes);
-
 showImages('WideImageWrapper', 'wideimagetest.class.jpg'); //======================
 #pbug($shapes);
 
@@ -246,7 +244,65 @@ $wrapper
 	->save('wideimagetest-wrapper-shapes.jpg')
 	;
 
+$wrapper->dispose();
 showImages('All Shapes - render example', 'wideimagetest-wrapper-shapes.jpg'); // ==============================
+
+
+// split test
+
+$wrapper = new WideImageWrapper('original.jpg');
+$wrapper
+	// text -------------
+	->setActiveFont('ERASMD.TTF', 25, 'FF6600')
+	->text('testing wrapper1', 'left', 'bottom - 50', array('hexColor' => '00F6CC', 'rotation' => -0.75))
+	->text('testing wrapper2', 'left', 'bottom - 20', array('hexColor' => '00F6CC', 'rotation' => 0.03, 'shadowOffset' => array(3,3) ))
+	;
+$wrapper
+	// parallelograms -------------
+	->square(/*w*/'10%', /*x*/'left + 10%', /*y*/'middle', /*color*/'22C6F6')
+		->text('1', /*x*/'left + 10%', /*y*/'middle')
+	->rect(/*w*/'10%', /*h*/'20%', /*x*/'left + 10%', /*y*/'top + 10%', /*color*/'22F6C6', /*angle*/0.1)
+		->text('2', /*x*/'left + 10%', /*y*/'top + 10%')
+	->diamond(/*w*/'30%', /*h*/'10%', /*x*/'left + 30%', /*y*/'top + 20%', /*color*/'F833C8', /*angle*/(0.1+0.25))
+		->text('3', /*x*/'left + 30%', /*y*/'top + 20%')
+	->diamond(/*w*/'10%', /*h*/'30%', /*x*/'left + 30%', /*y*/'top + 20%', /*color*/'33F8C8', /*angle*/0.1)
+		->text('4', /*x*/'left + 30%', /*y*/'top + 20%')
+	;
+$wrapper
+	// prove that triangle is just 3-pointed radial polygon -------------
+	->triangle(/*r*/'20%', /*x*/'center + 25%', /*y*/'25%', /*color*/'7799AA')
+		->text('5', /*x*/'center + 25%', /*y*/'25%')
+	->star(3, /*r*/'20%', /*x*/'center + 25%', /*y*/'25%', /*color*/'99AA77', /*angle*/0.5)
+		->text('6', /*x*/'center + 25%', /*y*/'25%')
+	;
+	// normal stars -------------
+$wrapper
+	->star(5, /*r*/'20%', /*x*/'center', /*y*/'middle', /*color*/'F6C622')
+		->text('7', /*x*/'center', /*y*/'middle')
+	->star(6, /*r*/'100', /*x*/'right - 100', /*y*/'middle', /*color*/'C622F6')
+		->text('8', /*x*/'right - 100', /*y*/'middle')
+	->star(9, /*r*/'50', /*x*/'25%', /*y*/'75%', /*color*/'F60000')
+		->text('9', /*x*/'25%', /*y*/'75%')
+	;
+$wrapper
+	->save('wideimagetest-wrapper-splitops.jpg')
+	;
+
+showImages('Split Operation - wrapper', 'wideimagetest-wrapper-splitops.jpg'); // ==============================
+
+
+$wrapper = new WideImageWrapper('original.jpg');
+$wrapper
+	->setActiveFont('ERASMD.TTF', 18, 'FF6600')
+	->heart(/*r*/'100', /*x*/'25%', /*y*/'75%', /*color*/'F60000')
+		->text('heart 50 25% 75% 0.3', /*x*/'25%', /*y*/'75%')
+	->circle(/*r*/'15%', /*x*/'75%', /*y*/'25%', /*color*/'00F600')
+		->text('circle', /*x*/'75%', /*y*/'25%')
+	->save('wideimagetest-wrapper-heart.jpg')
+	;
+
+showImages('Wrapper - heart', 'wideimagetest-wrapper-heart.jpg'); // ==============================
+
 # ================== helper, not wrapper ================
 
 /**/

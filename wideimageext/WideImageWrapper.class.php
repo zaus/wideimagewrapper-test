@@ -302,7 +302,8 @@ class WideImageWrapper {
 		$angleStar = deg2rad( 360 / (float)$num_points ) / 2;
 		// r_x = r * sin(interior) * [ 1 / tan(interior) - 1 / tan(armpit)]
 		$rInner =  $r * (cos($angleStar) - sin($angleStar) / tan($angleArmpit));
-		pbug($angleArmpit, $angleStar, $r, $rInner, cos($angleStar), sin($angleStar), tan($angleArmpit));
+
+		// rotate by half an "arm"
 		$innerPoints = GD_Utils::radial_polygon($num_points, $rInner, $angle+(1.0/((float)$num_points * 2.0)), $x, $y);
 
 		/*
@@ -346,6 +347,33 @@ class WideImageWrapper {
 		return $returnPoints ? $points : $this;
 	}
 
+
+	/**
+	 * Draw a triangle
+	 * @param  number  $r             radius (arm length)
+	 * @param  number|smart  $x             center x coordinate
+	 * @param  number|smart  $y             center y coordinate
+	 * @param  string  $color         hex color code
+	 * @param  decimal  $angle         rotation, in percent (0 - 1.0)
+	 * @param  string  $drawingMethod regular GD image rendering method (filledellipse or ellipse)
+	 * @param  boolean $returnPoints  (default false) if true, return the list of points, otherwise chain
+	 * @return mixed                 either the Wrapper (for chaining) or the list of points if $returnPoints = true
+	 */
+	public function circle($r, $x, $y, $color, $angle = 0, $drawingMethod = 'filledellipse', $returnPoints = false) {
+		// fix parameters
+		list($x, $y) = $this->smart_point($x, $y);
+		if( is_string($color) ) $color = GD_Utils::rgba($color, 0);
+		// allow smart coords for radius too
+		$r2 = $this->smart_point($r, 0);
+		
+		$this->canvas->$drawingMethod($x, $y, $r2[0], $r2[0], $color);
+
+		// $points = GD_Utils::circle($x, $y, $r2[0], $angle);
+		// $this->canvas->$drawingMethod( $points, 3, $color );
+		// return $returnPoints ? $points : $this;
+		
+		return $this; // chain
+	}
 
 	/**
 	 * Draw a triangle
@@ -457,7 +485,7 @@ class WideImageWrapper {
 		return $this->regularShapeWithDimensions(array(&$this, 'squareWithNormalizedParams'), $w, $w, $x, $y, $color, $angle, $drawingMethod, $returnPoints);
 	}
 
-
+	
 
 	/**
 	 * Interstitial helper function so that we can call actual square method as callback with same parameter signature
@@ -490,6 +518,38 @@ class WideImageWrapper {
 		return $returnPoints ? $points : $this;
 	}
 
+	/**
+	 * Draw a heart
+	 * @param  number  $r             radius (arm length)
+	 * @param  number|smart  $x             center x coordinate
+	 * @param  number|smart  $y             center y coordinate
+	 * @param  string  $color         hex color code
+	 * @param  decimal  $angle         rotation, in percent (0 - 1.0)
+	 * @param  string  $drawingMethod regular GD image rendering method (filledpolygon or drawpolygon)
+	 * @param  boolean $returnPoints  (default false) if true, return the list of points, otherwise chain
+	 * @return mixed                 either the Wrapper (for chaining) or the list of points if $returnPoints = true
+	 */
+	public function heart($r, $x, $y, $color, $angle = 0, $drawingMethod = 'filled', $returnPoints = false) {
+		// http://www.mathematische-basteleien.de/heart.htm
+		//http://mathworld.wolfram.com/HeartCurve.html
+
+		// draw a diamond and 2 circles, call it a day
+		list($x, $y) = $this->smart_point($x, $y);
+		list($r, $r2) = $this->smart_point($r, 0); // necessary?  only for %, really
+		// adjust for orientation
+		$angle -= 0.125;
+
+		$this->square(/*w*/$r, /*x*/$x, /*y*/$y, /*color*/$color, $angle, sprintf('%spolygon', $drawingMethod ));
+		
+		// rotate center around point
+		list($dx, $dy) = GD_Utils::cartesian($r/2, $angle);
+		$this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
+		list($dx, $dy) = GD_Utils::cartesian($r/2, $angle - 0.25);
+		$this->circle($r, $x + $dx, $y + $dy, $color, sprintf('%sellipse', $drawingMethod ));
+
+		
+		return $this; // chain
+	}
 
 	#endregion ---------------- shapes -----------------------
 	
