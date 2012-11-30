@@ -241,6 +241,8 @@ $wrapper
 		->text('7', /*x*/'center', /*y*/'middle')
 	->star(6, /*r*/'100', /*x*/'right - 100', /*y*/'middle', /*color*/'C622F6')
 		->text('8', /*x*/'right - 100', /*y*/'middle')
+	->star(9, /*r*/'50', /*x*/'25%', /*y*/'75%', /*color*/'F60000')
+		->text('9', /*x*/'25%', /*y*/'75%')
 	->save('wideimagetest-wrapper-shapes.jpg')
 	;
 

@@ -297,18 +297,19 @@ class WideImageWrapper {
 		// 13. R (cos S - sin S / tan A) = Ri
 		// 
 		// get half of angles here so we don't need to later
-		$angleArmpit = deg2rad( 180 * (float)($num_points - 2) ) / 2;
+		$angleArmpit = deg2rad( 180 * (float)($num_points - 2) / (float)$num_points ) / 2;
 		// interior angles of star = 360 / num_points
 		$angleStar = deg2rad( 360 / (float)$num_points ) / 2;
 		// r_x = r * sin(interior) * [ 1 / tan(interior) - 1 / tan(armpit)]
-		$rInner = $r * (cos($angleStar) - sin($angleStar) / tan($angleArmpit));
+		$rInner =  $r * (cos($angleStar) - sin($angleStar) / tan($angleArmpit));
 		pbug($angleArmpit, $angleStar, $r, $rInner, cos($angleStar), sin($angleStar), tan($angleArmpit));
-		$innerPoints = GD_Utils::radial_polygon($num_points, $rInner, $angle+0.5, $x, $y);
-
-		$this->canvas->$drawingMethod( $points, $num_points, $color );
-		$this->canvas->$drawingMethod( $innerPoints, $num_points, GD_Utils::rgba('CCCCCC') );
+		$innerPoints = GD_Utils::radial_polygon($num_points, $rInner, $angle+(1.0/((float)$num_points * 2.0)), $x, $y);
 
 		/*
+		$this->canvas->$drawingMethod( $points, $num_points, $color );
+		$this->canvas->$drawingMethod( $innerPoints, $num_points, GD_Utils::rgba('CCCCCC') );
+		*/
+	
 		// interleave
 		$istop = $num_points * 2; // since the point array is flattened, it'll have n*2 items
 		$newPoints = array();
@@ -321,7 +322,7 @@ class WideImageWrapper {
 			$newPoints []= $innerPoints[$i+1];
 		}
 		$this->canvas->$drawingMethod( $newPoints, $num_points * 2, $color );
-		*/
+		
 		return $returnPoints ? $points : $this;
 	}
 	function star_even($num_points, $r, $x, $y, $angle, $color, $drawingMethod, $returnPoints = false) {
