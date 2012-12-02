@@ -1,24 +1,9 @@
 <?php
-error_reporting( E_ALL );
-ini_set( 'display_errors', 1 );
+// error_reporting( E_ALL );
+// ini_set( 'display_errors', 1 );
 
 include('inc.php');
 
-
-
-
-function logToFile($filename, $msg) {
-	// http://www.devshed.com/c/a/PHP/Logging-With-PHP/1/#Tm1KhAGkW4islkJi.99 
-	
-	// open file
-	$fd = fopen($filename, "a");
-	// append date/time to message
-	$str = "[" . date("Y/m/d h:i:s", mktime()) . "] " . $msg;
-	// write string
-	fwrite($fd, $str . "\n");
-	// close file
-	fclose($fd);
-}
 
 
 function showImages($label, $images) {
@@ -40,40 +25,40 @@ function showImages($label, $images) {
 }
 
 
-// fake data
-$json = '{ "shapes": [
-	{
-		"type" : "circle",
-		"id" : "flxp-circle-0",
-		"position" : {
-			"x" : 120,
-			"y" : 142
-			},
-		"size" : 25,
-		"color" : "#FF0000"
-	},
-	{
-		"type" : "triangle",
-		"id" : "flxp-triangle-1",
-		"position" : {
-			"x" : 176,
-			"y" : 215
-			},
-		"rotation" : 304,
-		"color" : "#5F04B4"
-	},
-	{
-		"type" : "star",
-		"id" : "flxp-star-2",
-		"position" : {
-			"x" : 50,
-			"y" : 187
-			},
-		"size" : 18,
-		"rotation" : 48
-	}
-] }';
-$data0 = json_decode($json, true);
+// // fake data
+// $json = '{ "shapes": [
+// 	{
+// 		"type" : "circle",
+// 		"id" : "flxp-circle-0",
+// 		"position" : {
+// 			"x" : 120,
+// 			"y" : 142
+// 			},
+// 		"size" : 25,
+// 		"color" : "#FF0000"
+// 	},
+// 	{
+// 		"type" : "triangle",
+// 		"id" : "flxp-triangle-1",
+// 		"position" : {
+// 			"x" : 176,
+// 			"y" : 215
+// 			},
+// 		"rotation" : 304,
+// 		"color" : "#5F04B4"
+// 	},
+// 	{
+// 		"type" : "star",
+// 		"id" : "flxp-star-2",
+// 		"position" : {
+// 			"x" : 50,
+// 			"y" : 187
+// 			},
+// 		"size" : 18,
+// 		"rotation" : 48
+// 	}
+// ] }';
+// $data0 = json_decode($json, true);
 
 # ==============================================
 
@@ -84,8 +69,8 @@ $defaults = json_decode(file_get_contents('data/render-personalizer-defaults.jso
 // get post data
 $data = array_merge($_GET, $_POST);
 
-### add in some test data
-$data = extend($data0, $data);
+// ### add in some test data
+// $data = extend($data0, $data);
 
 Debug::log(Debug::INFO, "Request", $data);
 
@@ -174,8 +159,30 @@ Debug::log(Debug::INFO, 'Shape complete');
 $wrapper->dispose();
 unset($overlay);
 
-
-showImages('Finished Product', $asset_path, $newpath); # ================================
+// output style
+switch( v($data['response_format'], 'json') ) {
+	case 'json':
+		header("Content-type: application/json");
+		echo json_encode(array(
+			'rendered_path' => $newpath,
+			'output_quality' => $data['config']['output_quality']
+		));
+		break;
+	case 'html':
+		showImages('Finished Product', $asset_path, $newpath); # ================================
+		break;
+	case 'path':
+		header("Content-type: text/plain");
+		echo $newpath; //realpath($newpath);
+		break;
+	case 'url':
+		header("Content-type: text/plain");
+		echo $newpath; //realpath($newpath);
+		break;
+	case 'stream':
+		// TODO
+		break;
+}
 
 /*
 // watermark, standard
