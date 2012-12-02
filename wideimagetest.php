@@ -305,7 +305,39 @@ $wrapper
 	->save('wideimagetest-wrapper-heart.jpg')
 	;
 
+$wrapper->dispose();
+
 showImages('Wrapper - heart', 'wideimagetest-wrapper-heart.jpg'); // ==============================
+
+
+$wrapper = new WideImageWrapper('original.jpg');
+$overlay = WideImage::load('renderer/assets/MyFlexi_Large_Mask_800_600.png');
+$wrapper->merge($overlay)
+	->saveToFile('wideimagetest-wrapper-mergerenderermask.jpg');
+$wrapper->dispose();
+unset($overlay);
+showImages('Wrapper - renderer overlay', 'wideimagetest-wrapper-mergerenderermask.jpg'); // ==============================
+
+$wrapper = new WideImageWrapper('original.jpg');
+$overlay = WideImage::load('renderer/assets/MyFlexi_Large_Mask_800_600.png');
+$wrapper->merge($overlay);
+$wrapper->save('wideimagetest-wrapper-mergerenderermask2.jpg');
+unset($overlay);
+$wrapper->dispose();
+showImages('Wrapper - renderer overlay ORDER SWITCHED', 'wideimagetest-wrapper-mergerenderermask2.jpg'); // ==============================
+
+$wrapper = new WideImageWrapper('original.jpg');
+$overlay = WideImage::load('renderer/assets/MyFlexi_Large_Mask_800_600.png');
+$img = $wrapper->merge($overlay);
+$wrapper
+	->setActiveFont('ERASMD.TTF', 18, 'FF6600')
+	->circle(/*r*/'15%', /*x*/'25%', /*y*/'25%', /*color*/'0000F6', 'ellipse')
+		->text('hollow circle', /*x*/'25%', /*y*/'25%')
+	;
+$img->saveToFile('wideimagetest-wrapper-mergerenderermask3.jpg');
+unset($overlay);
+$wrapper->dispose();
+showImages('Wrapper - renderer overlay ORDER SWITCHED 2', 'wideimagetest-wrapper-mergerenderermask3.jpg'); // ==============================
 
 # ================== helper, not wrapper ================
 

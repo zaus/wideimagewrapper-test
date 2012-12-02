@@ -1,0 +1,74 @@
+{
+	"asset#comment": "use this asset for rendering; index to config.assets",
+	"asset": "placeholder",
+
+	"config#comments": "flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`",
+	"config" : {
+		"debug#comment": "true to turn on debug mode, which will log comments etc",
+		"debug": false,
+
+		"asset_path#allowOverwrite": false,
+		"asset_path#comment": "relative base path to assets folder",
+		"asset_path": "assets/",
+
+		"assets#allowOverwrite": false,
+		"assets#comment": "list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size",
+		"assets": [
+			{ 
+				"#comment": "placeholder instructions for generating filenames later",
+				"id": "placeholder",
+				"image": "%s.jpg",
+				"mask": "%s_mask.jpg",
+				"dimensions": {
+					"w": 1,
+					"h": 1
+				}
+			},
+			{ 
+				"id": "large",
+				"image": "MyFlexi_Large.png",
+				"mask": "MyFlexi_Large_Mask.png",
+				"dimensions": {
+					"w": 5234,
+					"h": 2532
+				}
+			},
+			{ 
+				"id": "medium",
+				"image": "MyFlexi_Medium.png",
+				"mask": "MyFlexi_Medium_Mask.png",
+				"dimensions": {
+					"w": 4494,
+					"h": 2140
+				}
+			},
+			{ 
+				"id": "small",
+				"image": "MyFlexi_Small.png",
+				"mask": "MyFlexi_Small_Mask.png",
+				"dimensions": {
+					"w": 4076,
+					"h": 1883
+				}
+			}
+		],
+
+		"output_size#comment": "default output size to render generated image; is a constraint - image will fit within box",
+		"output_size": {
+			"w": 800,
+			"h": 600
+		},
+
+		"output_format": "jpg",
+		"output_quality": 80,
+
+		"initial_shape_size#comment": "Shape instructions may or may not have an initial starting size which is adjusted by the given value.",
+		"initial_shape_size": {
+			"w": 20,
+			"h": 20
+		},
+		
+		"scale#comment": "initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels",
+		"scale": 400
+	}
+}

@@ -1,0 +1,2731 @@
+[2012/12/02 09:02:47] : -------------
+Request
+Array
+(
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+    [config] => Array
+        (
+            [asset_path] => blarhg
+            [debug] => true
+        )
+
+    [asset] => large
+)
+
+[2012/12/02 09:02:47] : -------------
+Defaults
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => placeholder
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => 
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+)
+
+[2012/12/02 09:02:47] : -------------
+configuration and input
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => large
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => true
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+)
+
+[2012/12/02 09:02:47] : -------------
+Initializing image wrapper with asset + mask
+assets/MyFlexi_Large_800_600.png
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:02:47] : -------------
+Looping instructions
+[2012/12/02 09:02:47] : -------------
+Scaled to:
+Array
+(
+    [x] => 240
+    [y] => 213
+)
+
+Array
+(
+    [x] => 90
+    [y] => 30
+)
+
+[2012/12/02 09:02:47] : -------------
+Scaled to:
+Array
+(
+    [x] => 352
+    [y] => 322.5
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:02:47] : -------------
+Scaled to:
+Array
+(
+    [x] => 100
+    [y] => 280.5
+)
+
+Array
+(
+    [x] => 76
+    [y] => 30
+)
+
+[2012/12/02 09:02:47] : -------------
+Scaled to:
+Array
+(
+    [x] => 20
+    [y] => 150
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:02:47] : -------------
+Merging mask overlay:
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:02:47] : -------------
+Saving to:
+output/E8BE091C-1C4A-4DF2-9347-4F7A4C1C6CDA.jpg
+[2012/12/02 09:02:47] : -------------
+Shape complete
+[2012/12/02 09:07:36] : -------------
+Request
+Array
+(
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+    [config] => Array
+        (
+            [asset_path] => blarhg
+            [debug] => true
+            [output_quality] => 50
+        )
+
+    [asset] => large
+)
+
+[2012/12/02 09:07:36] : -------------
+Defaults
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => placeholder
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => 
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 80
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+)
+
+[2012/12/02 09:07:36] : -------------
+configuration and input
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => large
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => true
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 50
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+)
+
+[2012/12/02 09:07:36] : -------------
+Initializing image wrapper with asset + mask
+assets/MyFlexi_Large_800_600.png
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:07:36] : -------------
+Looping instructions
+[2012/12/02 09:07:36] : -------------
+Scaled to:
+Array
+(
+    [x] => 240
+    [y] => 213
+)
+
+Array
+(
+    [x] => 90
+    [y] => 30
+)
+
+[2012/12/02 09:07:36] : -------------
+Scaled to:
+Array
+(
+    [x] => 352
+    [y] => 322.5
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:07:36] : -------------
+Scaled to:
+Array
+(
+    [x] => 100
+    [y] => 280.5
+)
+
+Array
+(
+    [x] => 76
+    [y] => 30
+)
+
+[2012/12/02 09:07:36] : -------------
+Scaled to:
+Array
+(
+    [x] => 20
+    [y] => 150
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:07:36] : -------------
+Merging mask overlay:
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:07:36] : -------------
+Saving to path with quality:
+output/E1700DE3-CFC8-4451-B02E-9AA39034E8AA.jpg
+50
+[2012/12/02 09:07:36] : -------------
+Shape complete
+[2012/12/02 09:14:51] : -------------
+Request
+Array
+(
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+    [config] => Array
+        (
+            [asset_path] => blarhg
+            [debug] => true
+            [output_quality] => 50
+        )
+
+    [asset] => large
+)
+
+[2012/12/02 09:14:51] : -------------
+Defaults
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => placeholder
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => 
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 80
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+)
+
+[2012/12/02 09:14:51] : -------------
+configuration and input
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => large
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => true
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 50
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+)
+
+[2012/12/02 09:14:51] : -------------
+Initializing image wrapper with asset + mask
+assets/MyFlexi_Large_800_600.png
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:14:51] : -------------
+Looping instructions
+[2012/12/02 09:14:51] : -------------
+Scaled to:
+Array
+(
+    [x] => 240
+    [y] => 213
+)
+
+Array
+(
+    [x] => 90
+    [y] => 30
+)
+
+[2012/12/02 09:14:51] : -------------
+Scaled to:
+Array
+(
+    [x] => 352
+    [y] => 322.5
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:14:51] : -------------
+Scaled to:
+Array
+(
+    [x] => 100
+    [y] => 280.5
+)
+
+Array
+(
+    [x] => 76
+    [y] => 30
+)
+
+[2012/12/02 09:14:51] : -------------
+Scaled to:
+Array
+(
+    [x] => 20
+    [y] => 150
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:14:51] : -------------
+Merging mask overlay:
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:14:51] : -------------
+Saving to path with quality:
+output/F0B3C543-C4F8-48C0-A99A-C1C2907D68A1.jpg
+50
+[2012/12/02 09:14:51] : -------------
+Shape complete
+[2012/12/02 09:15:14] : -------------
+Request
+Array
+(
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+    [config] => Array
+        (
+            [asset_path] => blarhg
+            [debug] => true
+            [output_quality] => 50
+        )
+
+    [asset] => large
+)
+
+[2012/12/02 09:15:14] : -------------
+Defaults
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => placeholder
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => 
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 80
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+)
+
+[2012/12/02 09:15:14] : -------------
+configuration and input
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => large
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => true
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 50
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+)
+
+[2012/12/02 09:15:14] : -------------
+Initializing image wrapper with asset + mask
+assets/MyFlexi_Large_800_600.png
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:15:14] : -------------
+Looping instructions
+[2012/12/02 09:15:14] : -------------
+Scaled to:
+Array
+(
+    [x] => 240
+    [y] => 213
+)
+
+Array
+(
+    [x] => 90
+    [y] => 30
+)
+
+[2012/12/02 09:15:14] : -------------
+Scaled to:
+Array
+(
+    [x] => 352
+    [y] => 322.5
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:15:14] : -------------
+Scaled to:
+Array
+(
+    [x] => 100
+    [y] => 280.5
+)
+
+Array
+(
+    [x] => 76
+    [y] => 30
+)
+
+[2012/12/02 09:15:14] : -------------
+Scaled to:
+Array
+(
+    [x] => 20
+    [y] => 150
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:15:14] : -------------
+Merging mask overlay:
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:15:14] : -------------
+Saving to path with quality:
+output/AAE23E9B-EDC1-42EF-B970-B1C6C84C11A6.jpg
+50
+[2012/12/02 09:15:14] : -------------
+Shape complete
+[2012/12/02 09:16:23] : -------------
+Request
+Array
+(
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+    [config] => Array
+        (
+            [asset_path] => blarhg
+            [debug] => true
+            [output_quality] => 50
+        )
+
+    [asset] => large
+)
+
+[2012/12/02 09:16:23] : -------------
+Defaults
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => placeholder
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => 
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 80
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+)
+
+[2012/12/02 09:16:23] : -------------
+configuration and input
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => large
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => true
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 50
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+)
+
+[2012/12/02 09:16:23] : -------------
+Initializing image wrapper with asset + mask
+assets/MyFlexi_Large_800_600.png
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:16:23] : -------------
+Looping instructions
+[2012/12/02 09:16:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 240
+    [y] => 213
+)
+
+Array
+(
+    [x] => 90
+    [y] => 30
+)
+
+[2012/12/02 09:16:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 352
+    [y] => 322.5
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:16:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 100
+    [y] => 280.5
+)
+
+Array
+(
+    [x] => 76
+    [y] => 30
+)
+
+[2012/12/02 09:16:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 20
+    [y] => 150
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:16:23] : -------------
+Merging mask overlay:
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:16:23] : -------------
+Saving to path with quality:
+output/155CB88D-6207-4CAC-925A-F9B4B543126B.jpg
+50
+[2012/12/02 09:16:23] : -------------
+Shape complete
+[2012/12/02 09:17:23] : -------------
+Request
+Array
+(
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+    [config] => Array
+        (
+            [asset_path] => blarhg
+            [debug] => true
+            [output_quality] => 50
+        )
+
+    [asset] => large
+)
+
+[2012/12/02 09:17:23] : -------------
+Defaults
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => placeholder
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => 
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 80
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+)
+
+[2012/12/02 09:17:23] : -------------
+configuration and input
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => large
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => true
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 50
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+)
+
+[2012/12/02 09:17:23] : -------------
+Initializing image wrapper with asset + mask
+assets/MyFlexi_Large_800_600.png
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:17:23] : -------------
+Looping instructions
+[2012/12/02 09:17:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 240
+    [y] => 213
+)
+
+Array
+(
+    [x] => 90
+    [y] => 30
+)
+
+[2012/12/02 09:17:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 352
+    [y] => 322.5
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:17:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 100
+    [y] => 280.5
+)
+
+Array
+(
+    [x] => 76
+    [y] => 30
+)
+
+[2012/12/02 09:17:23] : -------------
+Scaled to:
+Array
+(
+    [x] => 20
+    [y] => 150
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:17:23] : -------------
+Merging mask overlay:
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:17:23] : -------------
+Saving to path with quality:
+output/DF38FD5D-A374-4B6F-9FB3-062A0199E4AD.jpg
+50
+[2012/12/02 09:17:23] : -------------
+Shape complete
+[2012/12/02 09:21:05] : -------------
+Request
+Array
+(
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+    [config] => Array
+        (
+            [asset_path] => blarhg
+            [debug] => true
+            [output_quality] => 50
+        )
+
+    [asset] => large
+)
+
+[2012/12/02 09:21:05] : -------------
+Defaults
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => placeholder
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => 
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 80
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+)
+
+[2012/12/02 09:21:05] : -------------
+configuration and input
+Array
+(
+    [asset#comment] => use this asset for rendering; index to config.assets
+    [asset] => large
+    [config#comments] => flexiPersonalizer render default config options; specify non-overwriteable settings with `<key>#allowOverwrite: false`
+    [config] => Array
+        (
+            [debug#comment] => true to turn on debug mode, which will log comments etc
+            [debug] => true
+            [asset_path#allowOverwrite] => 
+            [asset_path#comment] => relative base path to assets folder
+            [asset_path] => assets/
+            [assets#allowOverwrite] => 
+            [assets#comment] => list of base images+mask to use as canvas; draw on image, layer mask on top; also provides size
+            [assets] => Array
+                (
+                    [0] => Array
+                        (
+                            [#comment] => placeholder instructions for generating filenames later
+                            [id] => placeholder
+                            [image] => %s.jpg
+                            [mask] => %s_mask.jpg
+                            [dimensions] => Array
+                                (
+                                    [w] => 1
+                                    [h] => 1
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => large
+                            [image] => MyFlexi_Large.png
+                            [mask] => MyFlexi_Large_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 5234
+                                    [h] => 2532
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => medium
+                            [image] => MyFlexi_Medium.png
+                            [mask] => MyFlexi_Medium_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4494
+                                    [h] => 2140
+                                )
+
+                        )
+
+                    [3] => Array
+                        (
+                            [id] => small
+                            [image] => MyFlexi_Small.png
+                            [mask] => MyFlexi_Small_Mask.png
+                            [dimensions] => Array
+                                (
+                                    [w] => 4076
+                                    [h] => 1883
+                                )
+
+                        )
+
+                )
+
+            [output_size#comment] => default output size to render generated image; is a constraint - image will fit within box
+            [output_size] => Array
+                (
+                    [w] => 800
+                    [h] => 600
+                )
+
+            [output_format] => jpg
+            [output_quality] => 50
+            [initial_shape_size#comment] => Shape instructions may or may not have an initial starting size which is adjusted by the given value.
+            [initial_shape_size] => Array
+                (
+                    [w] => 20
+                    [h] => 20
+                )
+
+            [scale#comment] => initial scale factor when accepting external coordinates; uses as width scale when extrapolating to asset coordinates - e.g. given 1000 means that incoming instructions assume a 1000 x 1000 canvas, but are instead fit to asset[large]'s actual pixels
+            [scale] => 400
+        )
+
+    [shapes] => Array
+        (
+            [0] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-0
+                    [position] => Array
+                        (
+                            [x] => 120
+                            [y] => 142
+                        )
+
+                    [size] => 25
+                    [color] => #FF0000
+                )
+
+            [1] => Array
+                (
+                    [type] => triangle
+                    [id] => flxp-triangle-1
+                    [position] => Array
+                        (
+                            [x] => 176
+                            [y] => 215
+                        )
+
+                    [rotation] => 304
+                    [color] => #5F04B4
+                )
+
+            [2] => Array
+                (
+                    [type] => star
+                    [id] => flxp-star-2
+                    [position] => Array
+                        (
+                            [x] => 50
+                            [y] => 187
+                        )
+
+                    [size] => 18
+                    [rotation] => 48
+                )
+
+            [x] => Array
+                (
+                    [type] => circle
+                    [id] => flxp-circle-URL
+                    [position] => Array
+                        (
+                            [x] => 10
+                            [y] => 100
+                        )
+
+                )
+
+        )
+
+)
+
+[2012/12/02 09:21:05] : -------------
+Initializing image wrapper with asset + mask
+assets/MyFlexi_Large_800_600.png
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:21:05] : -------------
+Looping instructions
+[2012/12/02 09:21:05] : -------------
+Scaled to:
+Array
+(
+    [x] => 240
+    [y] => 213
+)
+
+Array
+(
+    [x] => 90
+    [y] => 30
+)
+
+[2012/12/02 09:21:05] : -------------
+Scaled to:
+Array
+(
+    [x] => 352
+    [y] => 322.5
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:21:05] : -------------
+Scaled to:
+Array
+(
+    [x] => 100
+    [y] => 280.5
+)
+
+Array
+(
+    [x] => 76
+    [y] => 30
+)
+
+[2012/12/02 09:21:05] : -------------
+Scaled to:
+Array
+(
+    [x] => 20
+    [y] => 150
+)
+
+Array
+(
+    [x] => 40
+    [y] => 30
+)
+
+[2012/12/02 09:21:05] : -------------
+Merging mask overlay:
+assets/MyFlexi_Large_Mask_800_600.png
+[2012/12/02 09:21:05] : -------------
+Saving to path with quality:
+output/3381EABD-EEF5-41DA-BC66-D440F3BF898C.jpg
+50
+[2012/12/02 09:21:05] : -------------
+Shape complete

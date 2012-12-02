@@ -25,10 +25,10 @@ class WideImageWrapper {
 
 	/**
 	 * New helper wrapping the WideImage Image
-	 * @param WideImage_Image|string $image the image or path
+	 * @param WideImage_Image|string $image the image or path; leave blank to set later
 	 */
-	public function __construct($image) {
-		$this->setImage($image);
+	public function __construct($image = null) {
+		if( !is_null($image)) $this->setImage($image);
 	}
 
 	/**
